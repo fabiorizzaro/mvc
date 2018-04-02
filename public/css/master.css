@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 22, 2017, 10:52:39 PM
+    Author     : QZ54GL
+*/
+
+/*
+    CONSTANTS
+
+    DARKGREY = #333
+
+*/
+
+
+/*
+    @imports
+
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto:700');
+
+@import url('typography.css');
+@import url('components.css');
+
+
+/********************************************************************************************************/
+/***************************************** COURSE DETAILS ***********************************************/
+/********************************************************************************************************/
+
+.container-course-featured{
+    margin-top: 20px;
+}
+
+.container-course-deatails{
+    margin-top: 20px;
+}
+
+.row-course-details{
+    margin-top: 10px;
+    min-height: 80px;
+}
+
+.row-course-details div:first-child{
+    line-height: 80px;
+    border-right: 1px solid #000;
+    min-width: 80px;
+}
+
+.row-course-details img{
+    width: 45px;
+}
+
+ul{
+    list-style: none;
+   
+}
+
+#tb_course tr:nth-child(odd) {
+    background-color: #c0c0c0;
+}
+
+#tb_course tr:first-child {
+    background-color: blue;
+}

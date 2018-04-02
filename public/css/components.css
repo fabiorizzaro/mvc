@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 22, 2017, 11:54:41 PM
+    Author     : QZ54GL
+*/
+
+
+
+.button{
+
+    background-color: #00ABEB;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+.button-big{
+
+    position: relative; 
+    margin-left: 50%; 
+    left: -125px; 
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.3em;
+
+}
+
+.button-small{
+
+    position: relative; 
+    margin-left: 50%; 
+    left: -50px; 
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1em;
+
+}

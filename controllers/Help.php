@@ -27,4 +27,6 @@ class Help extends Controller{
         echo '<br/> We are accesing the other() function in controllers/Help';
         echo '<br/> We have the arg: ' . $va . '-' . $arg2;
     }
+    
+    
 }

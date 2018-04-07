@@ -12,39 +12,58 @@ class CourseModel extends Model {
         parent::__construct();
     }
 
-    //Database functions
-
+    /**
+     * COURSE INSERT
+     * 
+     * @param $_POST fields from Courses/AddEditForm.php 
+     * 
+     */
     public function insert() {
+        
+        
 
         try {
 
-            $sth = $this->db->prepare('INSERT INTO CURSO(status, name, shortDescription, smallPicture, longDescription, largePicture, subscribeStartDate, subscribeEndDate) '
-                    . 'VALUES( :status, :name, :shortDescription, :smallPicture, :longDescription, :largePicture, :subscribeStartDate, :subscribeEndDate )');
+            $sth = $this->db->prepare('INSERT INTO CURSO(status, name, shortDescription, smallPicture, longDescription, largePicture, subscribeStartDate, subscribeEndDate,'
+                    . 'homeDisplay, displayPosition, dateTime, loadTime, material, target, address, price, paymentMethod, teacher) '
+                    . 'VALUES( :status, :name, :shortDescription, :smallPicture, :longDescription, :largePicture, :subscribeStartDate, :subscribeEndDate,'
+                    . ':homeDisplay, :displayPosition, :dateTime, :loadTime, :material, :target, :address, :price, :paymentMethod, :teacher )');
 
             $sth->bindValue(":status", $_POST['status']);
             $sth->bindValue(":name", $_POST['name']);
             $sth->bindValue(":shortDescription", $_POST['shortDescription']);
-            $sth->bindValue(":smallPicture", $_POST['smallPicture']);
+            $sth->bindValue(":smallPicture", $_FILES['smallPicture']['name']);
             $sth->bindValue(":longDescription", $_POST['longDescription']);
-            $sth->bindValue(":largePicture", $_POST['largePicture']);
+            $sth->bindValue(":largePicture", $_FILES['largePicture']['name']);
             $sth->bindValue(":subscribeStartDate", $_POST['subscribeStartDate']);
             $sth->bindValue(":subscribeEndDate", $_POST['subscribeEndDate']);
-            
+            $sth->bindValue(":homeDisplay", $_POST['homeDisplay']);
+            $sth->bindValue(":displayPosition", $_POST['displayPosition']);
+            $sth->bindValue(":dateTime", $_POST['dateTime']);
+            $sth->bindValue(":loadTime", $_POST['loadTime']);
+            $sth->bindValue(":material", $_POST['material']);
+            $sth->bindValue(":target", $_POST['target']);
+            $sth->bindValue(":address", $_POST['address']);
+            $sth->bindValue(":price", $_POST['price']);
+            $sth->bindValue(":paymentMethod", $_POST['paymentMethod']);
+            $sth->bindValue(":teacher", $_POST['teacher']);
+
             $sth->execute();
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            $functionError = TRUE;
+            return $e->getMessage();
         }
 
-        $this->uploadImage();
+        //$this->uploadImage();
     }
 
     public function delete() {
 
         try {
 
-            $sth = $this->db->prepare('DELETE FROM CURSOS WHERE idCurso = :idCurso');
+            $sth = $this->db->prepare('DELETE FROM CURSO WHERE courseId = :courseId');
 
-            $sth->bindValue(":idCurso", $_GET['courseId']);
+            $sth->bindValue(":courseId", $_GET['courseId']);
 
             $sth->execute();
         } catch (PDOException $e) {
@@ -55,20 +74,55 @@ class CourseModel extends Model {
     public function update() {
 
         $this->uploadImage();
+
         try {
 
-            $sth = $this->db->prepare('UPDATE cursos SET nomeCurso = :nomeCurso, finalInscricao = :finalInscricao, valor=:valor, pictureSmall=:pictureSmall WHERE idCurso = :idCurso');
+            $sth = $this->db->prepare('UPDATE curso SET '
+                    . 'status = :status, '
+                    . 'name = :name, '
+                    . 'shortDescription=:shortDescription, '
+                    . 'smallPicture=:smallPicture, '
+                    . 'longDescription=:longDescription, '
+                    . 'largePicture=:largePicture, '
+                    . 'subscribeStartDate=:subscribeStartDate, '
+                    . 'subscribeEndDate=:subscribeEndDate, '
+                    . 'homeDisplay=:homeDisplay, '
+                    . 'displayPosition=:displayPosition, '
+                    . 'dateTime=:dateTime, '
+                    . 'loadTime=:loadTime, '
+                    . 'material=:material, '
+                    . 'target=:target, '
+                    . 'address=:address, '
+                    . 'price=:price, '
+                    . 'paymentMethod=:paymentMethod, '
+                    . 'teacher=:teacher '
+                    . 'WHERE courseId = :courseId');
 
-            $sth->bindValue(":idCurso", $_POST['courseId']);
-            $sth->bindValue(":nomeCurso", $_POST['courseName']);
-            $sth->bindValue(":pictureSmall", "/public/upload/" . $_FILES['homeImage']['name']);
-            $sth->bindValue(":finalInscricao", $_POST['subscribeLimitDate']);
-            $sth->bindValue(":valor", $_POST['courseValue']);
+            $sth->bindValue(":courseId", $_POST['courseId']);
+            $sth->bindValue(":status", $_POST['status']);
+            $sth->bindValue(":name", $_POST['name']);
+            $sth->bindValue(":shortDescription", $_POST['shortDescription']);
+            $sth->bindValue(":smallPicture", $_FILES['smallPicture']['name']);
+            $sth->bindValue(":longDescription", $_POST['longDescription']);
+            $sth->bindValue(":largePicture", $_FILES['largePicture']['name']);
+            $sth->bindValue(":subscribeStartDate", $_POST['subscribeStartDate']);
+            $sth->bindValue(":subscribeEndDate", $_POST['subscribeEndDate']);
+            $sth->bindValue(":homeDisplay", $_POST['homeDisplay']);
+            $sth->bindValue(":displayPosition", $_POST['displayPosition']);
+            $sth->bindValue(":dateTime", $_POST['dateTime']);
+            $sth->bindValue(":loadTime", $_POST['loadTime']);
+            $sth->bindValue(":material", $_POST['material']);
+            $sth->bindValue(":target", $_POST['target']);
+            $sth->bindValue(":address", $_POST['address']);
+            $sth->bindValue(":price", $_POST['price']);
+            $sth->bindValue(":paymentMethod", $_POST['paymentMethod']);
+            $sth->bindValue(":teacher", $_POST['teacher']);
 
 
             $sth->execute();
+            
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            Session::Set("PDO_ERRORS", $e->getMessage());
         }
     }
 
@@ -76,7 +130,7 @@ class CourseModel extends Model {
 
         try {
 
-            $sth = $this->db->query('SELECT * FROM CURSO');
+            $sth = $this->db->query('SELECT * FROM curso');
 
             $sth->execute();
 
@@ -114,16 +168,18 @@ class CourseModel extends Model {
 
         try {
 
-            $sth = $this->db->query('SELECT * FROM cursos WHERE homeShow = 1 ORDER BY homePosition LIMIT 6');
-
+            $sth = $this->db->query('SELECT * FROM curso WHERE homeDisplay = 1 ORDER BY displayPosition LIMIT 6');
+            
             $sth->execute();
-
+            
             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
 
             return $data;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
+        
+        
     }
 
     public function uploadImage() {

@@ -4,17 +4,22 @@
 <!--<body>-->
 
 <?php
+
 if (isset($this->data)) {
-    $selected = $this->data['displayPosition'];
+    $displayPosition = $this->data['displayPosition'];
 } else {
-    $selected = 0;
+    $displayPosition = 0;
 }
-
+if (isset($this->data)) {
+    $homeDisplay = $this->data['homeDisplay'];
+} else {
+    $homeDisplay = 0;
+} 
 
 if (isset($this->data)) {
-    $active = $this->data['status'];
+    $status = $this->data['status'];
 } else {
-    $active = 0;
+    $status = 0;
 }
 ?>
 
@@ -32,20 +37,26 @@ if (isset($this->data)) {
                     <div class="form-group col-lg-2">
                         <label for="status">Status do Curso</label>
                         <select id="status" name="status" class="form-control">
-                            <option <?php echo $active == '1' ? "selected" : false; ?> value="1">Ativo</option>
-                            <option <?php echo $active == '0' ? "selected" : false; ?> value="0">Fechado</option>
+                            <option <?php echo $status == '1' ? "selected" : false; ?> value="1">Aberto</option>
+                            <option <?php echo $status == '0' ? "selected" : false; ?> value="0">Fechado</option>
                         </select>
                     </div>
-
+                    <div class="form-group col-lg-2">
+                        <label for="homeDisplay ">Exibir na Home?</label>
+                        <select id="homeDisplay " name="homeDisplay" class="form-control">
+                            <option <?php echo $homeDisplay == '1' ? "homeDisplay" : false; ?> value="0">Não</option>
+                            <option <?php echo $homeDisplay == '2' ? "homeDisplay" : false; ?> value="1">Sim</option>
+                        </select>
+                    </div>
                     <div class="form-group col-lg-3">
                         <label for="diplayPosition">Posição na Home Page?</label>
-                        <select id="diplayPosition" name="diplayPosition" class="form-control">
-                            <option <?php echo $selected == '1' ? "selected" : false; ?> value="1">1</option>
-                            <option <?php echo $selected == '2' ? "selected" : false; ?> value="2">2</option>
-                            <option <?php echo $selected == '3' ? "selected" : false; ?> value="3">3</option>
-                            <option <?php echo $selected == '4' ? "selected" : false; ?> value="4">4</option>
-                            <option <?php echo $selected == '5' ? "selected" : false; ?> value="5">5</option>
-                            <option <?php echo $selected == '6' ? "selected" : false; ?> value="6">6</option>
+                        <select id="diplayPosition" name="displayPosition" class="form-control">
+                            <option <?php echo $displayPosition == '1' ? "selected" : false; ?> value="1">1</option>
+                            <option <?php echo $displayPosition == '2' ? "selected" : false; ?> value="2">2</option>
+                            <option <?php echo $displayPosition == '3' ? "selected" : false; ?> value="3">3</option>
+                            <option <?php echo $displayPosition == '4' ? "selected" : false; ?> value="4">4</option>
+                            <option <?php echo $displayPosition == '5' ? "selected" : false; ?> value="5">5</option>
+                            <option <?php echo $displayPosition == '6' ? "selected" : false; ?> value="6">6</option>
                         </select>
                     </div>
                 </div>
@@ -65,9 +76,9 @@ if (isset($this->data)) {
                     <div class="form-group col-lg-5">
                         <label for="smallPicture">Imagem Home</label>
                         <input type="file" class="form-control" id="smallPicture" name="smallPicture" 
-                               placeholder="Imagem Home" value="<?php echo isset($this->data) ? $this->data['smallPicture'] : false; ?>">
+                               placeholder="Imagem Home"  value="<?php echo isset($this->data) ? $this->data['smallPicture'] : false; ?>">
                         <div id="smallPicturePreview">
-                            <img widht="370" height="200" id="smallPicturePreviewing" src="<?php echo isset($this->data) ? ABS_PATH . $this->data['smallPicture'] : false; ?>" />
+                            <img widht="370" height="200" id="smallPicturePreviewing" src="<?php echo isset($this->data) ? ABS_PATH. "/public/upload/" . $this->data['smallPicture'] : false; ?>" />
                             <p id="message"></p>
                         </div>
                     </div>

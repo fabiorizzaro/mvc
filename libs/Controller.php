@@ -15,13 +15,15 @@ class Controller {
     }
 
     public function loadModel($name) {
-
-        $path = 'models/' . $name . 'Model.php';
+        
+        $path = ABS_PATH . '/mvc/models/' . $name . 'Model.php';
         if (file_exists($path)) {
             require 'models/' . $name . 'Model.php';
             $modelName = $name . "Model";
-            $this->model = new $modelName();
-        }
+            $this->$modelName = new $modelName();
+        } 
+
+     
     }
 
 }

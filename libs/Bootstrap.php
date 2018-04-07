@@ -45,8 +45,10 @@ class Bootstrap {
             
         } else {
 
-            require 'controllers/404.php';
-            $controller = new fourZeroFour();
+            //require 'controllers/404.php';
+            //$controller = new fourZeroFour();
+            echo "bootstrap error";
+            echo $file;
             return FALSE;
             
         }

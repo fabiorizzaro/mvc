@@ -15,18 +15,20 @@ class LoginModel extends Model {
     public function login() {
         try {
             
-            $sth = $this->db->prepare("select nomeUsuario, senha FROM usuarios WHERE nomeUsuario = :nome and senha = :senha");
+            $sth = $this->db->prepare("select username, password FROM usuarios WHERE username = :nome and password = :senha");
             
             $sth->bindValue(":nome", $_POST['user']);
             $sth->bindValue(":senha", md5($_POST['password']));
             
             $sth->execute();
-
+            
+            $result = $sth->fetch(PDO::FETCH_ASSOC);
             $count = $sth->rowCount();
             
             if($count > 0){
                 Session::Set('loggedIn', true);
-                header('location: '.ABS_PATH.'/Dashboard');
+                Session::Set('username', $result['username']);
+//                header('location: '.ABS_PATH.'/Dashboard');
             }
             
                         

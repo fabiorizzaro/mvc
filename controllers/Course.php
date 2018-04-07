@@ -11,6 +11,11 @@ class Course extends Controller {
     function __construct() {
         parent::__construct();
 
+        
+    }
+    
+    private function isLogged(){
+        
         if (!Session::Get('loggedIn')) {
             Session::Destroy();
             header('location: ' . ABS_PATH . '/Login');
@@ -35,23 +40,27 @@ class Course extends Controller {
     //Database functions
 
     public function insert() {
-        $this->model->insert();
-        header('location: ' . ABS_PATH . '/course');
+        
+      
+        $this->CourseModel->insert();
+//        header('location: ' . ABS_PATH . '/course');
+        $this->index();
+       
     }
 
     public function delete() {
-        $this->model->delete();
-        header('location: ' . ABS_PATH . '/course');
+        $this->CourseModel->delete();
+        header('location: /mvc/Course');
     }
 
     public function update() {
-        $this->model->update();
-       header('location: ' . ABS_PATH . '/course');
+        $this->CourseModel->update();
+       header('location: /mvc/Course');
        
     }
 
     public function searchAll() {
-        $this->view->data = $this->model->searchAll();
+        $this->view->data = $this->CourseModel->searchAll();
     }
     
     // Mudar para show();
@@ -60,16 +69,19 @@ class Course extends Controller {
         $key = 'courseId';
         $value = $_GET['courseId'];
                 
-        $this->view->data = $this->model->searchByKey($key,$value);
+        $this->view->data = $this->CourseModel->searchByKey($key,$value);
         $this->view->render('Courses/AddEditForm');
     }
 
     public function viewDetails() {
         
-        $key = 'idCurso';
+       
+        
+        $key = 'courseId';
         $value = $_GET['courseId'];
-        $this->view->data = $this->model->searchByKey($key,$value);
+        $this->view->data = $this->CourseModel->searchByKey($key,$value);
         $this->view->render('Courses/Details');
+        echo 'erro';
     }
     
 }

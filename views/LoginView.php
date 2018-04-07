@@ -3,7 +3,7 @@
 
 <div>
 
-    <form action="login/doLogin" method="POST">
+    <form action="Login/doLogin" method="POST">
         Nome de Usuário: <br/>
         <input type="text" id="user" name="user"><br/>
         Senha:<br/>
@@ -13,6 +13,20 @@
 
 
 </div>
-        
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+
+            asdf
+        </div>
+        <div class="col-lg-4">
+
+            asdf
+        </div>
+    </div>
+</div>
 <!--</body>-->
+
+
 <?php require 'HeaderFooter/Footer.php'; ?>

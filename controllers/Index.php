@@ -19,10 +19,12 @@ class Index extends Controller {
 
     public function index() {
         
-        $this->loadModel("course");
+        
+        $this->loadModel("Course");
         //chamar model para pegar os dados dos cursos
+        
        
-        $this->view->courses = $this->model->getHomeCourses(); 
+        $this->view->courses = $this->CourseModel->getHomeCourses(); 
         
         $this->view->render('IndexView');
     }

@@ -19,12 +19,13 @@ class Login extends Controller {
 
     public function doLogin() {
 
-        $this->model->login();
+        $this->LoginModel->login();
+        header('location: /mvc/Index');
     }
     
     public function logout(){
         Session::Destroy();
-        header('location: '.ABS_PATH.'/Index');
+        header('location: /mvc/Index');
         
     }
 

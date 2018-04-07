@@ -5,10 +5,10 @@
 
 <h3> Bem Vindo </h3>
 
-<a href="<?php echo ABS_PATH ?>/Help">HELP</a>
-<a href="<?php echo ABS_PATH ?>/Course">CURSOS</a>
+<a href="/mvc/Help">HELP</a>
+<a href="/mvc/Course">CURSOS</a>
 
-<a href="<?php echo ABS_PATH ?>/Login/logout">LOGOUT</a>
+<a href="/mvc/Login/logout">LOGOUT</a>
 
 <!--</body>-->
 <?php require 'HeaderFooter/Footer.php'; ?>

@@ -9,20 +9,20 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Instituto Alliqua</title>
-  
-        <script src="/mvc/public/js/jquery-3.1.0.js" type="text/javascript"></script>
+
+<!--    <script src="/mvc/public/js/jquery-3.1.0.js" type="text/javascript"></script>
         <script src="/mvc/public/Bootstrap/js/bootstrap.js" type="text/javascript"></script>
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>-->
-        <script src="/mvc/public/Bootstrap/js/tether.min.js" type="text/javascript"></script>
-
-
+        <script src="/mvc/public/Bootstrap/js/tether.min.js" type="text/javascript"></script>-->
 
         <!-- CSS External -->
         <link href="/mvc/public/css/master.css" rel="stylesheet" type="text/css"/>
-        <link href="/mvc/public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
-        <link href="/mvc/public/bootstrap/css/tether.min.css" rel="stylesheet" type="text/css"/>
+<!--    <link href="/mvc/public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="/mvc/public/bootstrap/css/tether.min.css" rel="stylesheet" type="text/css"/>-->
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
         <!--Mover isso para um arquico CSS-->
         <style>
@@ -59,7 +59,7 @@ and open the template in the editor.
         <!--******************************** Navbar ********************************-->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="<?php echo "http://" . $_SERVER['SERVER_NAME'] . '/mvc'?>"><img src="/mvc/public/img/Logo_174x25.png"> </a>
+            <a class="navbar-brand" href="<?php echo "http://" . $_SERVER['SERVER_NAME'] . '/mvc' ?>"><img src="/mvc/public/img/Logo_174x25.png"> </a>
 
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +95,7 @@ and open the template in the editor.
 
                 </ul>
                 <span class="navbar-text" style="color: white">
-                     <?php echo Session::Get('username') ? "   |   " . Session::Get('username') : FALSE  ?>
+                    <?php echo Session::Get('username') ? "   |   " . Session::Get('username') : FALSE ?>
                 </span>
             </div>
         </nav>

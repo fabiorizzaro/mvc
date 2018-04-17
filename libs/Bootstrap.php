@@ -31,6 +31,7 @@ class Bootstrap {
 
         foreach ($url as $key => $value) {
             if ($key > 1) {
+
                 $parameters[$key] = $value;
             }
         }
@@ -41,8 +42,7 @@ class Bootstrap {
 
             require $file;
             $this->controller = new $controller;
-            $this->controller->loadModel($controller);  
-            
+            $this->controller->loadModel($controller);
         } else {
 
             //require 'controllers/404.php';
@@ -50,21 +50,41 @@ class Bootstrap {
             echo "bootstrap error";
             echo $file;
             return FALSE;
-            
         }
-       
-//        check if that are parameters to be used
-//        if (!empty($parameters)) {
-//            call_user_func_array(array($controller, $function), $parameters);
-//        } 
 
-//        check if need to call a function
-        if(isset($function)) {
-            $this->controller->{$function}();
-        }else{
-            $this->controller->index();
+//        check if that are parameters to be used
+        if (!empty($parameters)) {
+//         
+            $numOfParameters = sizeof($parameters);
+
+            switch ($numOfParameters) {
+                case 1:
+                    $this->controller->{$function}($parameters[2]);
+                    break;
+                case 2:
+                    $this->controller->{$function}($parameters[2], $parameters[3]);
+                    break;
+                case 3:
+                    $this->controller->{$function}($parameters[2], $parameters[3], $parameters[4]);
+                    break;
+                case 4:
+                    $this->controller->{$function}($parameters[2], $parameters[3], $parameters[4], $parameters[5]);
+                    break;
+                case 5:
+                    $this->controller->{$function}($parameters[2], $parameters[3], $parameters[4], $parameters[5], $parameters[6]);
+                    break;
+                default:
+                    echo 'The maximum of parameters allowed are 5';
+                    break;
+            }
+        } else {
+
+            if (isset($function)) {
+                $this->controller->{$function}();
+            } else {
+                $this->controller->index();
+            }
         }
-        
     }
 
 }

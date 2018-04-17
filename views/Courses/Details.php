@@ -24,7 +24,7 @@
             </p>
 
             <br>
-            <a href="<?php echo  '../Subscribe?courseId=' . $this->data['courseId']?>" style="text-decoration: none;"> <div class="button button-big">Faça sua Inscrição</div></a>
+            <a href="<?php echo  '/mvc/Subscribe?courseId=' . $this->data['courseId']?>" style="text-decoration: none;"> <div class="button button-big">Faça sua Inscrição</div></a>
         </div>
     </div>
 </div>

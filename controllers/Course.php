@@ -73,12 +73,10 @@ class Course extends Controller {
         $this->view->render('Courses/AddEditForm');
     }
 
-    public function viewDetails() {
-        
-       
-        
+    public function viewDetails($courseId = null) {
+               
         $key = 'courseId';
-        $value = $_GET['courseId'];
+        $value = $courseId;
         $this->view->data = $this->CourseModel->searchByKey($key,$value);
         $this->view->render('Courses/Details');
         echo 'erro';

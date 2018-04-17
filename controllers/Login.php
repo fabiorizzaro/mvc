@@ -18,8 +18,11 @@ class Login extends Controller {
     } 
 
     public function doLogin() {
-
-        $this->LoginModel->login();
+        
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        
+        $this->LoginModel->login2($username, $password);
         header('location: /mvc/Index');
     }
     

@@ -8,6 +8,8 @@ require 'libs/Model.php';
 require './libs/Database.php';
 require './libs/Database2.php';
 require './libs/Session.php';
+require './libs/boletoFacil.php';
+require './libs/Crud.php';
 
 require './config/paths.php';
 require './libs/FileUpload.php';

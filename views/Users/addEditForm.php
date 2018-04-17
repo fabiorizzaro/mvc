@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-10" style="background-color: #eef; width: 100%; height: 100%;" >
-            <form action="subscribe/insert" method="POST">
+            <form action="/mvc/Subscribe/addUser" method="POST">
                 <br>
                 <h4>Dados Pessoais</h4>
                 <hr>
@@ -110,13 +110,29 @@
                     </div>
                 </div>
 
+                <br>
+                <h4>Dados de Acesso</h4>
+                <hr>
+
+                <div class="row form-group">
+                    <div class="col-lg-5">
+                        <label for="username">Nome de Usuario</label>
+                        <input type="text" id="username" name="username" class="form-control">
+                    </div>
+                    <div class="col-lg-5">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" class="form-control">
+                        <label for="password2">Confirme a Senha</label>
+                        <input type="password" id="password2" name="password2" class="form-control">
+                    </div>
+                </div>
                 <div class="row form-group">
                     <div class="col-lg-12">
+                        <input type="hidden" id="accessLevel" name="accessLevel" value="10"/>
                         <input type="submit" class="btn-primary" value="Enviar">
                     </div>
-
                 </div>
-                
+
             </form>
         </div>
     </div>

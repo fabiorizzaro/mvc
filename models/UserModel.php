@@ -22,10 +22,12 @@ class UserModel extends Model {
 
         try {
 
+            $this->db->beginTransaction();
+
             $sth = $this->db->prepare('INSERT INTO usuarios(fullname, rg, cpf, birthday, profession, degree, mobilePhone, homePhone,'
-                    . 'businessPhone, email, address, number, complement, neighborhood, city, state, cep) '
+                    . 'businessPhone, email, address, number, complement, neighborhood, city, state, cep, username, password) '
                     . 'VALUES( :fullname, :rg, :cpf, :birthday, :profession, :degree, :mobilePhone, :homePhone,'
-                    . ':businessPhone, :email, :address, :number, :complement, :neighborhood, :city, :state, :cep)');
+                    . ':businessPhone, :email, :address, :number, :complement, :neighborhood, :city, :state, :cep, :username, :password)');
 
             $sth->bindValue(":fullname", $_POST['fullName']);
             $sth->bindValue(":rg", $_POST['rg']);
@@ -44,15 +46,41 @@ class UserModel extends Model {
             $sth->bindValue(":city", $_POST['city']);
             $sth->bindValue(":state", $_POST['state']);
             $sth->bindValue(":cep", $_POST['cep']);
+            $sth->bindValue(":username", $_POST['username']);
+            $sth->bindValue(":password", MD5($_POST['username']));
 
             $sth->execute();
+
+            $lastInsertedId = $this->db->lastInsertId();
+
+            $this->db->commit();
         } catch (PDOException $e) {
 
-            $functionError = TRUE;
             return $e->getMessage();
         }
+
+        return $lastInsertedId;
+    }
+
+    public function searchByKey($key, $value) {
+
+        try {
+            
+            $sth = $this->db->prepare('SELECT * FROM usuarios WHERE ' . $key . '= :value');
+
+            $sth->bindValue(":value", $value);
+
+            $sth->execute();
+
+            $data = $sth->fetch(PDO::FETCH_ASSOC);
+            
+            return $data;
+            
+        } catch (PDOException $e) {
+            
+            echo 'Error: ' . $e->getMessage();
         
-        return $functionError;
+        }
     }
 
 }

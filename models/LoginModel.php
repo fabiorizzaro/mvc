@@ -13,30 +13,58 @@ class LoginModel extends Model {
     }
 
     public function login() {
+        
         try {
             
-            $sth = $this->db->prepare("select username, password FROM usuarios WHERE username = :nome and password = :senha");
+            $stmt = $this->db->prepare("SELECT userId, username, password FROM usuarios WHERE username = :username and password = :password");
             
-            $sth->bindValue(":nome", $_POST['user']);
-            $sth->bindValue(":senha", md5($_POST['password']));
+            $stmt->bindValue(":username", $_POST['username']);
+            $stmt->bindValue(":password", md5($_POST['password']));
             
-            $sth->execute();
+            $stmt->execute();
             
-            $result = $sth->fetch(PDO::FETCH_ASSOC);
-            $count = $sth->rowCount();
+            $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+            $rowCount = $stmt->rowCount();
             
-            if($count > 0){
+            if($rowCount > 0){
+                
                 Session::Set('loggedIn', true);
-                Session::Set('username', $result['username']);
-//                header('location: '.ABS_PATH.'/Dashboard');
+                Session::Set('userId', $userData['userId']);
+                Session::Set('username', $userData['username']);
             }
-            
-                        
+                       
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
+            die;
         }
     }
     
+    public function login2($username, $password) {
+        
+        try {
+            
+            $stmt = $this->db->prepare("SELECT userId, username, password FROM usuarios WHERE username = :username and password = :password");
+            
+            $stmt->bindValue(":username", $username);
+            $stmt->bindValue(":password", md5($password));
+            
+            $stmt->execute();
+            
+            $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+            $rowCount = $stmt->rowCount();
+            
+            if($rowCount > 0){
+                
+                Session::Set('loggedIn', true);
+                Session::Set('userId', $userData['userId']);
+                Session::Set('username', $userData['username']);
+            }
+                       
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            die;
+        }
+    }
     
 
 }

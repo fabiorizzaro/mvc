@@ -8,11 +8,11 @@
     <div class="row justify-content-lg-center">
         <div class="col-lg-4">
             <h6>Faça o Login</h6>
-            <form action="../Subscribe/checkLogin" method="POST">
+            <form action="Subscribe/checkLogin" method="POST">
                 <div class="row">
                     <div class="form-group">
-                        <label for="userName">Usuário</label>
-                        <input type="text" class="form-control" id="userName" name="user" 
+                        <label for="username">Usuário</label>
+                        <input type="text" class="form-control" id="userName" name="username" 
                                placeholder="" value="">
                     
                         <label for="password">Senha</label>
@@ -28,7 +28,7 @@
         </div>
         <div class="col-lg-4" align="center">
             <h6>Faça seu cadastro</h6>
-            <a class="btn-outline-primary" href="../Subscribe/NewUser">Faça seu cadastro</a>
+            <a class="btn-outline-primary" href="Subscribe/NewUser">Faça seu cadastro</a>
         </div>
     </div>
 </div>

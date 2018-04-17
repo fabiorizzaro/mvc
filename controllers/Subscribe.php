@@ -11,13 +11,11 @@ class Subscribe extends Controller {
     function __construct() {
 
         parent::__construct();
-
-        //Aditional Models
         $this->loadModel("User");
         $this->loadModel("Login");
         $this->loadModel("Course");
     }
-    
+
     /**
      * 
      *  Check if the user is logged
@@ -25,42 +23,90 @@ class Subscribe extends Controller {
      */
     public function index() {
 
-        Session::Set('courseId', $_GET['courseId']);
+        //Come from CourseDetais - Parameter is in the link
+
+        if ($_GET['courseId']) {
+            Session::Set('courseId', $_GET['courseId']);
+            $this->validateUser();
+        } else {
+            header('location: /mvc/Index');
+        }
+    }
+
+    public function validateUser() {
 
         if (!Session::Get('loggedIn')) {
-            header('location: /mvc/User/validation');
+            $this->view->render('Users/userValidation');
             exit;
         } else {
-            
-            $this->view->courseData = $this->CourseModel->searchByKey("courseId", $_GET['courseId']);
+            $this->view->userData = $this->UserModel->searchByKey("userId", Session::Get('userId'));
+            $this->view->courseData = $this->CourseModel->searchByKey("courseId", Session::Get('courseId'));
             $this->view->render('Courses/Enroll');
         }
     }
 
+    /**
+     * Call the form to add a new user
+     */
     public function newUser() {
         $this->view->render('users/addEditForm');
     }
 
     /**
      * 
-     * Public function insert
-     * 
+     * @todo Change the funcion name to addNewUser
+     * @todo Send wellcome e-mail to user
      */
-    public function insert() {
+    public function addUser() {
+        
+        $userId = $this->UserModel->insert();
+        
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-        if (!$this->UserModel->insert()) {
-            $this->view->render('Courses/Enroll');
-        }
+        $this->LoginModel->login2($username, $password);
+
+        $this->view->userData = $this->UserModel->searchByKey("userId", $userId);
+        $this->view->courseData = $this->CourseModel->searchByKey("courseId", Session::Get('courseId'));
+        
+        $this->view->render('Courses/Enroll');
     }
 
     public function checkLogin() {
 
         $this->LoginModel->login();
+
+        $this->view->userData = $this->UserModel->searchByKey("userId", Session::Get('userId'));
+        $this->view->courseData = $this->CourseModel->searchByKey("courseId", Session::Get('courseId'));
+
         $this->view->render('Courses/Enroll');
     }
 
     public function enroll() {
-        $this->view->render('users/addEditForm');
+
+        $this->SubscribeModel->userData = $this->UserModel->searchByKey("userId", Session::Get('userId'));
+        $this->SubscribeModel->courseData = $this->CourseModel->searchByKey("courseId", Session::Get('courseId'));
+
+        $this->SubscribeModel->enroll();
     }
 
+    public function paymentNotification() {
+
+        $this->SubscribeModel->paymentNotification['paymentToken'] = $_POST['paymentToken'];
+        $this->SubscribeModel->paymentNotification['chargeReference'] = $_POST['chargeReference'];
+        $this->SubscribeModel->paymentNotification['chargeCode'] = $_POST['chargeCode'];
+        
+        $this->SubscribeModel->validatePayment();
+    }
+    
+    public function confirmation(){
+        
+        $this->view->render('Subscribe/confirmation');
+    }
+ 
+    public function test($var = null, $var2 = null, $var3 = null, $var4 = null, $var5 = null){
+      
+         $this->SubscribeModel->test();
+        
+    }
 }

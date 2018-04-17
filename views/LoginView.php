@@ -5,7 +5,7 @@
 
     <form action="Login/doLogin" method="POST">
         Nome de Usuário: <br/>
-        <input type="text" id="user" name="user"><br/>
+        <input type="text" id="user" name="username"><br/>
         Senha:<br/>
         <input type="password" id="password" name="password"><br/>
         <input type="submit" value="Login">

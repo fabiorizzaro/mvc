@@ -44,7 +44,7 @@
         echo "<p><strong>Disponibilidade:</strong> Inscrições Abertas</p>";
         echo "<p>" . $row['shortDescription'] . "</p>";
         echo "<br>";
-        echo "<a href='Course/ViewDetails?courseId=" . $row['courseId'] . "'>";
+        echo "<a href='Course/ViewDetails/" . $row['courseId'] . "'>";
         echo "<p align = 'center' class = 'button'>Mais Detalhes</p>";
         echo "</a>";
         echo "</div>";

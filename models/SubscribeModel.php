@@ -173,7 +173,6 @@ class SubscribeModel extends Model {
             $this->payment->setCreditCardExpirationYear($this->creditCard['creditCardExpirationYear']);
         }
 
-
         $returnData = json_decode($this->payment->doPayment());
 
         //var_dump($returnData->data->charges[0]->billetDetails);

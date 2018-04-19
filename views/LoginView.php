@@ -1,4 +1,4 @@
-<?php require 'HeaderFooter/Header.php'; ?>
+
 <!--<body>-->
 
 <div>
@@ -29,4 +29,3 @@
 <!--</body>-->
 
 
-<?php require 'HeaderFooter/Footer.php'; ?>

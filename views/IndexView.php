@@ -34,20 +34,20 @@
 
         echo "<div class='col-lg-4'>";
 
-        echo "<p class='courseTitle'>" . $row['name'] . "</p>";
+            echo "<p class='courseTitle'>" . $row['name'] . "</p>";
 
-        echo "<div class='courseImage'>";
-        echo "<img width=370 src=/mvc/public/upload/" . $row['smallPicture'] . ">";
-        echo "</div>";
+            echo "<div class='courseImage'>";
+                echo "<img width=370 src=/mvc/public/upload/" . $row['smallPicture'] . ">";
+            echo "</div>";
 
-        echo "<div class='courseDescription'>";
-        echo "<p><strong>Disponibilidade:</strong> Inscrições Abertas</p>";
-        echo "<p>" . $row['shortDescription'] . "</p>";
-        echo "<br>";
-        echo "<a href='Course/ViewDetails/" . $row['courseId'] . "'>";
-        echo "<p align = 'center' class = 'button'>Mais Detalhes</p>";
-        echo "</a>";
-        echo "</div>";
+            echo "<div class='courseDescription'>";
+                echo "<p><strong>Disponibilidade:</strong> Inscrições Abertas</p>";
+                echo "<p>" . $row['shortDescription'] . "</p>";
+                echo "<br>";
+                echo "<a href='Course/ViewDetails/" . $row['courseId'] . "'>";
+                echo "<p align = 'center' class = 'button'>Mais Detalhes</p>";
+                echo "</a>";
+            echo "</div>";
 
         echo "</div>";
 

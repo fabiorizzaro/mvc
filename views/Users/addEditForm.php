@@ -7,8 +7,8 @@
 <h3 align="center">Complete seu cadastro para efetuar a sua matricula</h3>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-10" style="background-color: #eef; width: 100%; height: 100%;" >
-            <form action="/mvc/Subscribe/addUser" method="POST">
+        <div class="col-lg-10" style="background-color: #eee;" >
+            <form name="userRegister" action="/mvc/Subscribe/addUser" method="POST">
                 <br>
                 <h4>Dados Pessoais</h4>
                 <hr>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" name="cpf" data-mask="999.999.999-99"class="form-control">
+                        <input type="text" id="cpf" name="cpf" class="form-control">
                     </div>
                 </div>
 
@@ -129,7 +129,7 @@
                 <div class="row form-group">
                     <div class="col-lg-12">
                         <input type="hidden" id="accessLevel" name="accessLevel" value="10"/>
-                        <input type="submit" class="btn-primary" value="Enviar">
+                        <input type="submit" class="btn btn-primary" value="Enviar">
                     </div>
                 </div>
 
@@ -139,7 +139,47 @@
 </div>
 
 
+<script>
 
+    $(document).ready(function () {
+        $('#rg').mask('00.000.000-0');
+        $('#cpf').mask('000.000.000-00');
+        $('#birthDay').mask('99/99/9999');
+    });
+
+    $(document).ready(function () {
+
+        // Initialize form validation on the registration form.
+        // It has the name attribute "registration"
+        $("form[name='userRegister']").validate({
+
+            rules: {
+
+                fullName: "required",
+                cpf: {
+                    required: true,
+                    cpfBR: true
+                }
+
+
+
+            },
+
+            messages: {
+                fullName: {
+                    required: "Preenchimento Obrigatório"
+                },
+                cpf: {
+                    required: "CPF Inválido",
+                    cpfBR: "Por favor Digite um CPF válido"
+                }
+
+            }
+        });
+    });
+
+
+</script>
 
 <!--</body>-->
 <?php require 'views/HeaderFooter/Footer.php' ?>

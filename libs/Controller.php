@@ -9,7 +9,7 @@
 class Controller {
 
     function __construct() {
-//        echo 'it´s comming from main controller!';
+
         $this->view = new View();
         Session::Init();
     }
@@ -22,8 +22,7 @@ class Controller {
             $modelName = $name . "Model";
             $this->$modelName = new $modelName();
         } 
-
-     
+    
     }
 
 }

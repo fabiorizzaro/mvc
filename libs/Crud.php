@@ -72,6 +72,18 @@ class Crud {
         }
     }
 
+    public function beginTransaction() {
+        $this->pdo->beginTransaction();
+    }
+
+    public function commit() {
+        $this->pdo->commit();
+    }
+
+    public function rollback() {
+        $this->pdo->rollback();
+    }
+
     /*
      * Método privado para construção da instrução SQL de INSERT   
      * @param $arrayDados = Array de dados contendo colunas e valores   
@@ -193,7 +205,9 @@ class Crud {
             // Executa a instrução SQL e captura o retorno   
             $retorno = $stm->execute();
 
-            return $retorno;
+            $lastInsertedId = $this->pdo->lastInsertId();
+
+            return "$retorno  - $lastInsertedId";
         } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }
@@ -278,35 +292,72 @@ class Crud {
 
     public function getSQLGeneric($sql, $arrayParams = null, $fetchAll = TRUE) {
         try {
-        
-        // Passa a instrução para o PDO   
-        $stm = $this->pdo->prepare($sql);
 
-        // Verifica se existem condições para carregar os parâmetros    
-        if (!empty($arrayParams)):
+            // Passa a instrução para o PDO   
+            $stm = $this->pdo->prepare($sql);
 
-            // Loop para passar os dados como parâmetro cláusula WHERE   
-            $cont = 1;
-        
-            foreach ($arrayParams as $valor):
-                $stm->bindValue($cont, $valor);
-                $cont++;
-            endforeach;
+            // Verifica se existem condições para carregar os parâmetros    
+            if (!empty($arrayParams)):
 
-        endif;
+                // Loop para passar os dados como parâmetro cláusula WHERE   
+                $cont = 1;
 
-        // Executa a instrução SQL    
-        $stm->execute();
+                foreach ($arrayParams as $valor):
+                    $stm->bindValue($cont, $valor);
+                    $cont++;
+                endforeach;
 
-        // Verifica se é necessário retornar várias linhas  
-        if ($fetchAll):
-            $dados = $stm->fetchAll(PDO::FETCH_OBJ);
-        else:
-            $dados = $stm->fetch(PDO::FETCH_OBJ);
-        endif;
+            endif;
 
-        return $dados;
+            // Executa a instrução SQL    
+            $stm->execute();
 
+            // Verifica se é necessário retornar várias linhas  
+            if ($fetchAll):
+                $dados = $stm->fetchAll(PDO::FETCH_OBJ);
+            else:
+                $dados = $stm->fetch(PDO::FETCH_OBJ);
+            endif;
+
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+
+    public function getSQLGenericClass($sql, $arrayParams = null, $className, $fetchAll = TRUE) {
+
+        try {
+
+            // Passa a instrução para o PDO   
+            $stm = $this->pdo->prepare($sql);
+
+            // Verifica se existem condições para carregar os parâmetros    
+            if (!empty($arrayParams)):
+
+                // Loop para passar os dados como parâmetro cláusula WHERE   
+                $cont = 1;
+
+                foreach ($arrayParams as $valor):
+                    $stm->bindValue($cont, $valor);
+                    $cont++;
+                endforeach;
+
+            endif;
+
+            // Executa a instrução SQL    
+            $stm->execute();
+
+            // Verifica se é necessário retornar várias linhas  
+            if ($fetchAll):
+                $stm->setFetchMode(PDO::FETCH_CLASS, $className);
+                $dados = $stm->fetchAll();
+            else:
+                $stm->setFetchMode(PDO::FETCH_CLASS, $className);
+                $dados = $stm->fetch();
+            endif;
+
+            return $dados;
         } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }

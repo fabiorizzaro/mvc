@@ -64,7 +64,7 @@ if (isset($this->data)) {
                     <div class="form-group col-lg-12">
                         <label for="name">Nome do Curso</label>
                         <input type="text" class="form-control" id="name" name="name" 
-                               placeholder="Nome do Curso" value="<?php echo isset($this->data) ? $this->data['name'] : false; ?>">
+                               placeholder="Nome do Curso" value="<?php echo isset($this->data) ? $this->data['title'] : false; ?>">
                     </div>
                 </div>
                 <div class="row">
@@ -103,10 +103,11 @@ if (isset($this->data)) {
                         <label for="subscribeStartDate">Inicio das Inscrições</label>
                         <input type="date" class="form-control" id="subscribeStartDate" name="subscribeStartDate" 
                                value="<?php echo isset($this->data) ? $this->data['subscribeStartDate'] : false; ?>">
+                        
                     </div>
                     <div class="form-group col-lg-6">
                         <label for="subscribeEndDate">Fim das Inscrições</label>
-                        <input type="date" class="form-control" id="subscribeStartDate" name="subscribeEndDate" 
+                        <input type="datetime-local" class="form-control" id="subscribeStartDate" name="subscribeEndDate" 
                                value="<?php echo isset($this->data) ? $this->data['subscribeEndDate'] : false; ?>">
                     </div>
 
@@ -118,29 +119,29 @@ if (isset($this->data)) {
                     <div class="form-group col-lg-3 ">
                         <label for="dateTime">Data&Hora</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="dateTime" name="dateTime" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['dateTime'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['dateTimeDesc'] : false; ?></textarea>
                     </div>
                     <div class="form-group col-lg-3">
                         <label for="loadTime">Carga Horária</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="loadTime" name="loadTime" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['loadTime'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['loadTimeDesc'] : false; ?></textarea>
                     </div>
                     <div class="form-group col-lg-3">
                         <label for="material">Material</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="material" name="material" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['material'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['materialDesc'] : false; ?></textarea>
                     </div>
                     <div class="form-group col-lg-3">
                         <label for="target">Público Alvo</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="target" name="target" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['target'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['targetDesc'] : false; ?></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-3 ">
                         <label for="address">Enderço</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="address" name="address" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['address'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['addressDesc'] : false; ?></textarea>
                     </div>
                     <div class="form-group col-lg-3">
                         <label for="price">Investimento</label>
@@ -150,12 +151,12 @@ if (isset($this->data)) {
                     <div class="form-group col-lg-3">
                         <label for="paymentMethod">Formas de Pagamento</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="paymentMethod" name="paymentMethod" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['paymentMethod'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['paymentMethodDesc'] : false; ?></textarea>
                     </div>
                     <div class="form-group col-lg-3">
                         <label for="teacher">Formadores</label>
                         <textarea rows="3" maxlength="400"  class="form-control" id="teacher" name="teacher" 
-                                  placeholder=""><?php echo isset($this->data) ? $this->data['teacher'] : false; ?></textarea>
+                                  placeholder=""><?php echo isset($this->data) ? $this->data['teachersDesc'] : false; ?></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -180,11 +181,11 @@ if (isset($this->data)) {
 
     if ($("#courseId").val() === "") {
 
-        $("#course").attr("action", "insert");
+        $("#course").attr("action", "/mvc/course/insert");
 
     } else {
 
-        $("#course").attr("action", "update");
+        $("#course").attr("action", "/mvc/course/update");
 
     }
 

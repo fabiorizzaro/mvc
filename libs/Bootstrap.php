@@ -12,14 +12,9 @@ class Bootstrap {
 
 //        $url is defined into .htaccess 
 
-        $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : 'Index';
+        $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : 'home';
         $url = explode('/', $url);
-
-//        There are some thing going wrong with the Index name.....
-//        I don´t know why
-//        echo 'Variable $url has these values: ';
-//        print_r($url);
-
+        
         if (isset($url[0])) {
             $controller = $url[0];
         }
@@ -82,7 +77,7 @@ class Bootstrap {
             if (isset($function)) {
                 $this->controller->{$function}();
             } else {
-                $this->controller->index();
+                $this->controller->main();
             }
         }
     }

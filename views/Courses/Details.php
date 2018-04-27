@@ -18,13 +18,13 @@
         <div class="col-md-6 col-sm-12 col-xs-12" >
 
             <!-- Titulo do Curso -->
-            <h1><?php echo isset($this->data) ? $this->data['name'] : false; ?></h1>
+            <h1><?php echo isset($this->data) ? $this->data['title'] : false; ?></h1>
             <p class="p-featured">
                 <?php echo isset($this->data) ? $this->data['shortDescription'] : false; ?>
             </p>
 
             <br>
-            <a href="<?php echo  '/mvc/Subscribe?courseId=' . $this->data['courseId']?>" style="text-decoration: none;"> <div class="button button-big">Faça sua Inscrição</div></a>
+            <a href="<?php echo  '/mvc/subscribe/main/' . $this->data['courseId']?>" style="text-decoration: none;"> <div class="button button-big">Faça sua Inscrição</div></a>
         </div>
     </div>
 </div>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9" >
                     <h6 class="h6-noTopMargin">Data&Hora:</h6>
-                    <p><?php echo isset($this->data) ? $this->data['dateTime'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['dateTimeDesc'] : false; ?></p>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <h6 class="h6-noTopMargin">Carga Horária</h6>
-                    <p><?php echo isset($this->data) ? $this->data['loadTime'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['loadTimeDesc'] : false; ?></p>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <h6 class="h6-noTopMargin">Material</h6>
-                    <p><?php echo isset($this->data) ? $this->data['material'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['materialDesc'] : false; ?></p>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <h6 class="h6-noTopMargin">Público Alvo</h6>
-                    <p><?php echo isset($this->data) ? $this->data['target'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['targetDesc'] : false; ?></p>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <h6 class="h6-noTopMargin">Endereço</h6>
-                    <p><?php echo isset($this->data) ? $this->data['address'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['addressDesc'] : false; ?></p>
                 </div>
             </div>
 
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <h6 class="h6-noTopMargin">Condições de Pagamento</h6>
-                    <p><?php echo isset($this->data) ? $this->data['paymentMethod'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['paymentMethodDesc'] : false; ?></p>
                 </div>
             </div>
 
@@ -148,7 +148,7 @@
                 </div>
                 <div class="col-md-9 col-xs-9">
                     <h6>Formadores:</h6>
-                    <p><?php echo isset($this->data) ? $this->data['teacher'] : false; ?></p>
+                    <p><?php echo isset($this->data) ? $this->data['teachersDesc'] : false; ?></p>
                 </div>
             </div>
 

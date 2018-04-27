@@ -9,9 +9,9 @@
 class Model {
 
     function __construct() {
-        //$this->db = new Database();
-        
+                
         $this->db = Database2::getInstance();
+        $this->CRUD = CRUD::getInstance(Database2::getInstance());
     }
 
 }

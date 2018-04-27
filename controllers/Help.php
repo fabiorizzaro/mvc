@@ -15,10 +15,10 @@ class Help extends Controller{
                 
     }
     
-    public function index(){
-        $this->view->msg = 'My test message'; 
-        $this->view->render('Help');
-           echo session_id();
+    public function main(){
+       
+        $this->view->make('Help');
+           
     }
 
     public function other(){

@@ -9,39 +9,40 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Instituto Alliqua</title>
-        
-        
-        
+
+
+
 <!--    <script src="/mvc/public/js/jquery-3.1.0.js" type="text/javascript"></script>
-        <script src="/mvc/public/Bootstrap/js/bootstrap.js" type="text/javascript"></script>
-        <script src="/mvc/public/Bootstrap/js/tether.min.js" type="text/javascript"></script>-->
+<script src="/mvc/public/Bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="/mvc/public/Bootstrap/js/tether.min.js" type="text/javascript"></script>-->
 
         <!-- CSS External -->
         <link href="/mvc/public/css/master.css" rel="stylesheet" type="text/css"/>
-<!--    <link href="/mvc/public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="/mvc/public/bootstrap/css/tether.min.css" rel="stylesheet" type="text/css"/>-->
+        <!--    <link href="/mvc/public/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+                <link href="/mvc/public/bootstrap/css/tether.min.css" rel="stylesheet" type="text/css"/>-->
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
+
         <script src="/mvc/public/js/jquery.mask.min.js" type="text/javascript"></script>
         <script src="/mvc/public/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="/mvc/public/js/additional-methods.min.js" type="text/javascript"></script>
         <!--Mover isso para um arquico CSS-->
         <style>
 
-            .bg-light{
+            #mainNav.bg-light{
                 background-color: #333 !important;
             }
-            .nav-link{
+            #mainNav .nav-link{
                 color: #fff !important;
             }
-            .nav-link:hover{
+            #mainNav .nav-link:hover{
                 color: #ccffcc !important;
             }
-            .navbar-brand{
+            #mainNav .navbar-brand{
                 color:#fff !important;
             }
 
@@ -63,7 +64,7 @@ and open the template in the editor.
 
         <!--******************************** Navbar ********************************-->
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="<?php echo "http://" . $_SERVER['SERVER_NAME'] . '/mvc' ?>"><img src="/mvc/public/img/Logo_174x25.png"> </a>
 
 
@@ -92,10 +93,10 @@ and open the template in the editor.
                         <a class="nav-link" href="#">Equipe</a>
                     </li>
                     <?php if (!Session::Get('loggedIn')) { ?>
-                        <li class="nav-item"><a class="nav-link" href="/mvc/Login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mvc/login/loginForm">Login</a></li>
                     <?php } else { ?>
-                        <li class="nav-item"><a class="nav-link" href="/mvc/Dashboard">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mvc/Login/logout">Logoff</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mvc/dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mvc/login/logout">Logoff</a></li>
                     <?php } ?>
 
                 </ul>

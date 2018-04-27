@@ -32,11 +32,11 @@
 
             echo '<tr>';
             echo '<td>' . $row['courseId'] . '</td>';
-            echo '<td>' . $row['name'] . '</td>';
+            echo '<td>' . $row['title'] . '</td>';
             echo '<td>' . $row['subscribeEndDate'] . '</td>';
             echo '<td>' . $row['price'] . '</td>';
-            echo '<td><a class="btn btn-primary" href="Course/edit?courseId=' . $row['courseId'] . '" >EDITAR</a></td>';
-            echo '<td><a data-confirm="Are you sure you want to delete?" class="btn btn-danger" href="Course/delete?courseId=' . $row['courseId'] . '">APAGAR</a></td>';
+            echo '<td><a class="btn btn-primary" href="/mvc/course/edit?courseId=' . $row['courseId'] . '" >EDITAR</a></td>';
+            echo '<td><a data-confirm="Are you sure you want to delete?" class="btn btn-danger" href="/mvc/course/delete?courseId=' . $row['courseId'] . '">APAGAR</a></td>';
             echo '</tr>';
         }
         ?>

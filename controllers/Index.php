@@ -26,7 +26,7 @@ class Index extends Controller {
        
         $this->view->courses = $this->CourseModel->getHomeCourses(); 
         
-        $this->view->render('IndexView');
+        $this->view->make('IndexView');
     }
 
 }

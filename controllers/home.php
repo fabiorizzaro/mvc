@@ -6,22 +6,23 @@
  * and open the template in the editor.
  */
 
-class Dashboard extends Controller {
+class home extends Controller {
 
     function __construct() {
         parent::__construct();
-
-        if (!Session::Get('loggedIn')) {
-            Session::Destroy();
-            header('location: ' . ABS_PATH . '/Login');
-            exit;
-        }
+        $this->loadModel("Course");
     }
 
-    public function index() {
-        $this->view->render('DashboardView');
+    /*
+     *  Routing: 
+     */
 
+    public function main() {
         
+        $this->view->courses = $this->CourseModel->getHomeCourses();
+        $this->view->make('IndexView');
     }
+
+    
 
 }

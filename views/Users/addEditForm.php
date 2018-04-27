@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-10" style="background-color: #eee;" >
-            <form name="userRegister" action="/mvc/Subscribe/addUser" method="POST">
+            <form name="userRegister" action="/mvc/user/create" method="POST">
                 <br>
                 <h4>Dados Pessoais</h4>
                 <hr>
@@ -41,7 +41,21 @@
                     </div>
                     <div class="col-lg-4">
                         <label for="degree">Escolaridade</label>
-                        <input type="text" id="degree" name="degree" class="form-control">
+                        <select id="degree" name="degree" class="form-control">
+                            <option value="1">Fundamental - Incompleto</option>
+                            <option value="2">Fundamental - Completo</option>
+                            <option value="3">Médio - Incompleto</option>
+                            <option value="4">Médio - Completo</option>
+                            <option value="5">Superior - Incompleto</option>
+                            <option value="6">Superior - Completo</option>
+                            <option value="7">Pós-Graduação - Incompleto</option>
+                            <option value="8">Pós-Graduação - Completo</option>
+                            <option value="9">Mestrado - Incompleto</option>
+                            <option value="10">Mestrado - Completo</option>
+                            <option value="11">Doutorado - Incompleto</option>
+                            <option value="12">Doutorado - Completo</option>
+                        </select>
+
                     </div>
                 </div>
 
@@ -55,15 +69,15 @@
                 <div class="row form-group">
                     <div class="col-lg-4">
                         <label for="mobilePhone">Telefone Celular</label>
-                        <input type="text" id="mobilePhone" name="mobilePhone" data-mask="(00) 0000-0000" class="form-control">
+                        <input type="text" id="mobilePhone" name="mobilePhone" placeholder="(  )     -    " class="form-control">
                     </div>
                     <div class="col-lg-4">
                         <label for="homePhone">Telefone Residencial</label>
-                        <input type="text" id="homePhone" name="homePhone" data-mask="(00) 00000-0000"  class="form-control">
+                        <input type="text" id="homePhone" name="homePhone" placeholder="(  )     -    "  class="form-control">
                     </div>
                     <div class="col-lg-4">
                         <label for="businessPhone">Telefone Comercial</label>
-                        <input type="text" id="businessPhone" name="businessPhone" data-mask="(00) 00000-0000"  class="form-control">
+                        <input type="text" id="businessPhone" name="businessPhone" placeholder="(  )     -    "  class="form-control">
                     </div>
                 </div>
 
@@ -142,27 +156,42 @@
 <script>
 
     $(document).ready(function () {
+
+        // Set input masks
         $('#rg').mask('00.000.000-0');
         $('#cpf').mask('000.000.000-00');
         $('#birthDay').mask('99/99/9999');
-    });
+        $('#mobilePhone').mask('(99)99999-9999');
+        $('#homePhone').mask('(99)9999-9999');
+        $('#businessPhone').mask('(99)9999-9999');
+        $('#cep').mask('99999-999');
 
-    $(document).ready(function () {
-
-        // Initialize form validation on the registration form.
-        // It has the name attribute "registration"
+        // Configure input validation
         $("form[name='userRegister']").validate({
 
             rules: {
 
                 fullName: "required",
+                address: "required",
+                number: "required",
+                neighborhood: "required",
+                city: "required",
+                state: "required",
+                
                 cpf: {
                     required: true,
                     cpfBR: true
+                },
+
+                password: {
+                    required: true,
+                    minlength: 5
+                },
+                password2: {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#password"
                 }
-
-
-
             },
 
             messages: {
@@ -172,12 +201,58 @@
                 cpf: {
                     required: "CPF Inválido",
                     cpfBR: "Por favor Digite um CPF válido"
+                },
+                address: {
+                    required: "Preenchimento Obrigatório"
+                },
+                number: {
+                    required: "Preenchimento Obrigatório"
+                },
+                neighborhood: {
+                    required: "Preenchimento Obrigatório"
+                },
+                city: {
+                    required: "Preenchimento Obrigatório"
+                },
+                state: {
+                    required: "Preenchimento Obrigatório"
+                },
+                password: {
+                    required: "Preenchimento Obrigatório",
+                    minlength: "Sua senha deve conter pelo menos 5 caracteres"
+                },
+                password2: {
+                    required: "Preenchimento Obrigatório",
+                    minlength: "Sua senha deve conter pelo menos 5 caracteres",
+                    equalTo: "a senha deve ser igual"
                 }
-
             }
         });
-    });
 
+        //*********************************************************************
+        //*********************** CONSULT DE CEP ******************************
+        //*********************************************************************
+
+        $("#cep").focusout(function () {
+
+            $.getJSON("https://viacep.com.br/ws/" + $("#cep").val() + "/json/")
+
+                    .done(function (result) {
+
+                        if (!("erro" in result)) {
+                            $("#address").val(result.logradouro);
+                            $("#neighborhood").val(result.bairro);
+                            $("#city").val(result.localidade);
+                            $("#state").val(result.uf);
+                        } else {
+                            $("#cep").val("CEP não encontrado");
+                        }
+                    })
+                    .fail(function () {
+                        $("#cep").val("CEP Inválido - O CEP deve conter apenas 8 dígitos");
+                    });
+        });
+    });
 
 </script>
 

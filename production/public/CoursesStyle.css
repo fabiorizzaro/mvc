@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 7, 2017, 7:36:58 PM
+    Author     : QZ54GL
+*/
+/* ========== Google Fonts Import ========== */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Roboto+Condensed:700');
+/* ========== End Import ========== */
+
+
+
+#menuBar{
+    height: 50px;
+    width: 100%;
+    background-color:rgba(0, 171, 235, 0.5);
+}
+
+#menuBar img{
+    position: absolute;
+    top:12px;
+}
+
+#courseTitle{
+    padding-left: 17px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5em;
+    color: #00ABEB;
+
+}
+
+#courseImage{
+    border-left: 15px solid #00ABEB;
+    height: 324px;
+    overflow: hidden;
+
+}
+
+#courseImage img{
+    width: 100%;
+    height: auto;
+}
+
+#courseDescription{
+    padding-left: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+}
+#details{
+    height: 2000px;
+    background-color: #00ABEB;
+    text-align: center; 
+}
+
+#detailsMainTitle{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5em;
+}
+
+.detailsTitle{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.detailsText{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.courseButton{
+
+    position: relative;
+    top: 10px;
+
+    background-color: white;
+    border-color: #00ABEB;
+    border-style: solid;
+    border-width: 2px;
+    color: #00ABEB;
+    font-family: 'Roboto', sans-serif;  
+    font-size: 1.5em;
+    text-decoration: none;
+
+}

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 
  * @param type $className
@@ -7,10 +6,10 @@
  */
 function myAutoLoader($className) {
 
-    $path = strtolower('libs/' . $className . '.php');
-
+    $path = ('libs/' . $className . '.php');
+       
     if (file_exists($path)) {
-
+       
         require ( $path );
     } else {
         $path = strtolower('classes/' . $className . '.php');

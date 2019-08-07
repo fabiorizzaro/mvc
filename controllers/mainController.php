@@ -21,7 +21,8 @@ class mainController extends Controller {
 
         
         $this->view->courses = $this->CourseModel->getHomeCourses();
-        $this->view->make('IndexView');
+        $this->view->make('IndexView','fdp');
+        
     }
 
     public function render($path = null) {
@@ -52,7 +53,7 @@ class mainController extends Controller {
         $value = $courseId;
         $this->view->data = $this->CourseModel->searchByKey($key, $value);
         $this->view->make('Courses/Details');
-        echo 'erro';
+        
     }
 
 }

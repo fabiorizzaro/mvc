@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 27, 2019, 1:32:54 PM
+    Author     : QZ54GL
+*/
+
+.container{
+    background-color: lightblue;
+    height: 1000px;
+}
+
+.my-card{
+    background-color: white;
+    
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(170,170,170,1);
+    -moz-box-shadow: 5px 5px 10px 0px rgba(170,170,170,1);
+    box-shadow: 5px 5px 10px 0px rgba(170,170,170,1);
+}
+
+.my-card--img{
+    background-color: lightgrey;
+    width: 100%;
+    height: 150px;
+}
+
+.my-card--title{
+
+    
+
+}
+
+.my-card--footer{
+    background-color: darkgray;
+    width: 100%;
+
+}

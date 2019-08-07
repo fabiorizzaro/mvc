@@ -1,7 +1,7 @@
-
-
-<?php
-phpinfo();
-echo 'teste';
-
+<?php session_start();
+ var_dump($_SESSION);
 ?>
+
+//<?php
+//phpinfo();
+//?>

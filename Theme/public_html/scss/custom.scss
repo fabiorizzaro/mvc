@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 10, 2019, 3:12:22 PM
+    Author     : QZ54GL
+*/
+
+@import "_functions.scss";
+@import "_variables.scss";
+
+$theme-colors: (
+  primary: red,
+  purple: $purple // $purple is defined in _variables.scss
+);
+
+@import "bootstrap.scss";
+

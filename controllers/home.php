@@ -10,7 +10,7 @@ class home extends Controller {
 
     function __construct() {
         parent::__construct();
-        $this->loadModel("Course");
+        $this->loadModel("course");
     }
 
     /*
@@ -19,8 +19,11 @@ class home extends Controller {
 
     public function main() {
         
-        $this->view->courses = $this->CourseModel->getHomeCourses();
-        $this->view->make('IndexView');
+       
+        $this->view->courses = $this->courseModel->getHomeCourses();
+        
+        $this->view->make('IndexView','Home - Instituto Alliqua');
+        
     }
 
     

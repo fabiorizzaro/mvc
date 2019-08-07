@@ -46,6 +46,7 @@ class boletoFacil {
     private $feeSchemaToken;
     private $splitRecipient;
     private $paymentTypes;
+    private $creditCardHash;
     private $creditCardNumber;
     private $creditCardHolderName;
     private $creditCardSecurityCode;
@@ -90,6 +91,7 @@ class boletoFacil {
             'feeSchemaToken' => $this->feeSchemaToken,
             'splitRecipient' => $this->splitRecipient,
             'paymentTypes' => $this->paymentTypes,
+            'creditCardHash' => $this->creditCardHash,
             'creditCardNumber' => $this->creditCardNumber,
             'creditCardHolderName' => $this->creditCardHolderName,
             'creditCardSecurityCode' => $this->creditCardSecurityCode,
@@ -392,5 +394,14 @@ class boletoFacil {
     public function setBillingAddressNumber($billingAddressNumber) {
         $this->billingAddressNumber = $billingAddressNumber;
     }
+
+    public function getCreditCardHash() {
+        return $this->creditCardHash;
+    }
+
+    public function setCreditCardHash($creditCardHash) {
+        $this->creditCardHash = $creditCardHash;
+    }
+
 
 }

@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 22, 2017, 11:51:14 PM
+    Author     : QZ54GL
+*/
+
+h1,h2,h3,h4,h5,h6{
+    margin: 10px 0px 5px 0px;
+    font-family: 'Roboto', sans-serif;
+    color: #222;
+}
+
+h1{
+    font-size: 2.5em;
+}
+h2{
+
+}
+h3{
+
+}
+h4{
+
+}
+h5{
+
+}
+h6{
+    font-size: 1em;
+}
+
+.h6-noTopMargin{
+    margin-top: 0px;
+}
+
+p{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.900em;
+}
+
+.p-featured{
+    font-weight: 600;
+}

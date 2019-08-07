@@ -26,7 +26,7 @@
 
         <div class="col-lg-4  myBox m-1 border border-secondary">
 
-            <form id="loginForm" action="/mvc/login/login" method="POST">
+            <form id="loginForm" action="/login/login" method="POST">
                 <div class="form-group text-center px-1" >
                     <h5>Já é nosso Aluno?</h5>
 
@@ -45,7 +45,7 @@
         <div class="col-lg-4  d-flex align-items-center justify-content-center m-1 border border-secondary myBox">
             <div class="align-self-center ">
                 <h5>Ainda não é aluno?</h5>
-                <a class="btn btn-primary" href="/mvc/user/userForm" >Faça seu cadastro</a>
+                <a class="btn btn-primary" href="/user/userForm" >Faça seu cadastro</a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
 
         $.ajax({
             method: "POST",
-            url: "/mvc/login/login",
+            url: "/login/login",
             data: $("#loginForm").serialize(),
             dataType: 'JSON'
         })

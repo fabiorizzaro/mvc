@@ -6,6 +6,6 @@
  * and open the template in the editor.
  */
 
-//define('ABS_PATH', 'http://localhost/mvc');
+//define('ABS_PATH', 'http://localhost/');
 
 define('ABS_PATH', $_SERVER['CONTEXT_DOCUMENT_ROOT']);

@@ -1,0 +1,113 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 11, 2019, 7:51:34 PM
+    Author     : QZ54GL
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700');
+
+@media (max-width: 480px) {
+
+    html {
+        font-size: 90%; 
+    }
+    
+    .highlights > h2{
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/************** TIPOGRAFIA ****************/
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 90%;
+}
+
+h1,h2,h3,h4,h5,h6{
+
+    font-family: 'Open Sans Condensed', sans-serif;  
+
+}
+
+h6{
+    font-size: 0.9rem;
+}
+
+
+.sans-condensed{
+    font-family: 'Open Sans Condensed', sans-serif;   
+}
+
+.sans-regular{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/************** COURSE PAGE LAYOUT ****************/
+
+.card{
+    border-color: #F0F0F0;
+    margin-top: 3px;
+}
+
+.card-header{
+    background-color: #F0F0F0;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.10rem;
+}
+
+
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: #00ABEB;
+}
+.nav-pills .nav-link{
+    border-radius: 0.0rem;
+}
+
+
+/* PAGINA CURSO */
+
+
+.highlights{
+
+    position: relative; 
+    width: 24%; 
+    height: 80px;
+    background-color: #00ABEB; 
+    margin-right: 1.33%;
+    padding: 1%;
+    overflow: hidden;
+    color: #fff;
+
+}
+
+.highlights__last{
+    margin-right: 0%;
+
+}
+
+.highlights--text__center{
+    position: absolute; 
+    top:50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+
+}
+
+
+.vh-center{
+
+    position: absolute;
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}

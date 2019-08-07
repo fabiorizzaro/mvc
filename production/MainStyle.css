@@ -1,0 +1,239 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 6, 2017, 8:22:12 AM
+    Author     : qz54gl
+*/
+
+/* ========== Google Fonts Import ========== */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Roboto+Condensed:700');
+/* ========== End Import ========== */
+
+#cover_mobile{
+	display: none;
+}
+
+@media only screen and (max-width: 480px){
+
+			
+		#cover_desktop{
+			display: none;
+		}
+     	
+		#cover_mobile{
+			display: block !important;
+			width: 100%
+		}
+
+ 	}
+
+
+
+html, body{
+    height: 100%;
+}
+
+a{
+	text-decoration: none;
+}
+
+#landing{
+    padding: 0px;
+    height: 100%;
+}
+
+#landing-content{
+
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+#landing img{
+    max-width: 100%;
+}
+
+#logo{
+    position: absolute;
+    top: 100px;
+    text-align: right;
+
+}
+
+/* --------------------------------------------- */
+
+#courses-content .col-lg-4{
+    padding: 0px;
+    min-height: 100px;
+    text-align: left;
+
+}
+
+.courseTitle{
+    position: relative;
+    top: 40px;
+    min-height: 140px;    
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5em;
+    color: #00ABEB;
+}
+
+.courseImage{
+
+
+
+
+}
+.courseDescription{
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    min-height: 200px;
+}
+
+.coursesButtons{
+    
+    padding-right: 30px;
+    position: relative;
+    top: 30px;
+    text-align: right; 
+}
+
+.courseButton{
+    
+    padding: 5px 18px;
+    background-color: white;
+    border-color: #00ABEB;
+    border-style: solid;
+    border-width: 1px;
+    color: #00ABEB;
+    font-family: 'Roboto', sans-serif;  
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+/* --------------------------------------------- */
+#aboutUs{
+    position: relative;
+    padding: 0px;
+    top: 100px;
+}
+
+#aboutUs .row{
+    padding: 0px;
+    overflow: hidden;   
+}
+
+#aboutUs img{
+
+    max-width: 1200px;
+
+}
+
+#aboutUsContentLine1{
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    
+}
+
+#aboutUsContentLine2{
+    position: absolute;
+    top: 80px;
+    
+}
+
+#aboutUsTitle{
+    
+    padding: 10px;
+    color: white;
+    background-color: #00ABEB;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5em;
+    background-color:rgba(0, 171, 235, 0.5);
+}
+
+#aboutUsText{
+    position: relative;
+    top: 50px;
+    padding: 10px;
+    background-color: white;
+    background-color:rgba(255, 255, 255, 0.5);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    
+}
+
+
+/* --------------------------------------------- */
+/* ----------------SubscribeForm---------------- */
+/* --------------------------------------------- */
+
+#menuBar{
+    height: 50px;
+    width: 100%;
+    background-color:rgba(0, 171, 235, 0.5);
+}
+
+#menuBar img{
+    position: absolute;
+    top:12px;
+}
+
+.formTitle{
+    position: relative;
+    top: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1em;
+    
+} 
+
+.formInput{
+    border-color: #00ABEB;
+    border-width: 1px;
+    border-style: solid;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.subscribeTitle{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5em;
+    color: #00ABEB;
+}
+
+.subscribeText{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+#response{
+    
+    
+}
+
+
+/* --------------------------------------------- */
+/* ----------------GENERAL STYLE---------------- */
+/* --------------------------------------------- */
+
+.button{
+    
+    padding: 5px 18px;
+    background-color: #00ABEB;
+    border-color: #00ABEB;
+    border-style: solid;
+    border-width: 1px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;  
+    font-size: 1.2em;
+	font-weight: bold;
+    text-decoration: none;
+}

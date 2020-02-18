@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class subscribe extends Controller {
+class subscribe extends controller {
 
     function __construct() {
 

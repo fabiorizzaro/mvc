@@ -7,7 +7,7 @@
  */
 
 
-class Help extends Controller{
+class help extends controller{
    
     function __construct() {
         parent::__construct();

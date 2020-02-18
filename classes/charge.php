@@ -11,7 +11,7 @@
  *
  * @author QZ54GL
  */
-class Charge {
+class charge {
 
     private $chargeReference;
     private $chargeAmount;

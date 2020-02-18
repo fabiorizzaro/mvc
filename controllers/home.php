@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class home extends Controller {
+class home extends controller {
 
     function __construct() {
         parent::__construct();

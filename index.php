@@ -9,8 +9,7 @@ function myAutoLoader($className) {
     $path = ('libs/' . $className . '.php');
        
     if (file_exists($path)) {
-       
-        require ( $path );
+               require ( $path );
     } else {
         $path = strtolower('classes/' . $className . '.php');
         require ( $path );

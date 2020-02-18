@@ -11,7 +11,7 @@
  *
  * @author QZ54GL
  */
-class User {
+class user {
     
     private $userId;
     private $fullName;

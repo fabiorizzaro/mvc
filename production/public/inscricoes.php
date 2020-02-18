@@ -75,7 +75,7 @@
 
                 <div class="col-lg-offset-3 col-lg-6">
 
-                    <form name="registration" action="Controler/inscricaoController.php?action=inscricao" method="POST">
+                    <form name="registration" action="controler/inscricaoController.php?action=inscricao" method="POST">
 
                         <!--*************************************************************************-->
                         <!--****************************DADOS PESSOAIS********************************-->

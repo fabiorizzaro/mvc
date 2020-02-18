@@ -11,7 +11,7 @@
  *
  * @author QZ54GL
  */
-class Post {
+class post {
     
     private $date;
     private $headLine;

@@ -88,7 +88,7 @@ class subscribeModel extends Model {
      * 
      */
 
-    public function boletoPayment($installments, Course $course, User $user, $coupon) {
+    public function boletoPayment($installments, course $course, user $user, $coupon) {
 
         //Cria o Numero de Referencia
         $referenceNumber = strtoupper(uniqid());

@@ -11,7 +11,7 @@
  *
  * @author QZ54GL
  */
-class Course {
+class course {
 
 //    private $courseId;
 //    private $status;

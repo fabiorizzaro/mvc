@@ -11,7 +11,7 @@
  *
  * @author QZ54GL
  */
-class Coupon {
+class coupon {
 
     private $couponID;
     private $courseId;

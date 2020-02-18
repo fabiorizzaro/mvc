@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Bootstrap {
+class bootstrap {
 
     function __construct() {
 

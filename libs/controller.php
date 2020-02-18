@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Controller {
+class controller {
 
     function __construct() {
 

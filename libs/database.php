@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Database extends PDO {
+class catabase extends PDO {
 
 
     public function __construct() {

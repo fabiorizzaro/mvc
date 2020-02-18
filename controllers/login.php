@@ -16,6 +16,7 @@ class login extends Controller {
         $this->view->make('Login/loginBox');
     }
 
+    // Exibe a tela para entrar com Usuário e Senha
     public function loginForm($requestedBy = null) {
         Session::Set('requestedBy', "/$requestedBy");
         $this->view->make('Login/loginBox');
@@ -37,7 +38,7 @@ class login extends Controller {
             echo json_encode($data);
         } else {
 
-            $data = $this->loginModel->login2($username, $password);
+            $data = $this->loginModel->login($username, $password);
             echo json_encode($data);
         }
     }

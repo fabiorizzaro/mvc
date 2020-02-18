@@ -18,44 +18,7 @@ class courseModel extends Model {
      * @param $_POST fields from Courses/AddEditForm.php 
      * 
      */
-    public function insert() {
-
-        try {
-
-            $sth = $this->db->prepare('INSERT INTO CURSO(status, name, shortDescription, smallPicture, longDescription, largePicture, subscribeStartDate, subscribeEndDate,'
-                    . 'homeDisplay, displayPosition, dateTime, loadTime, material, target, address, price, paymentMethod, teacher) '
-                    . 'VALUES( :status, :name, :shortDescription, :smallPicture, :longDescription, :largePicture, :subscribeStartDate, :subscribeEndDate,'
-                    . ':homeDisplay, :displayPosition, :dateTime, :loadTime, :material, :target, :address, :price, :paymentMethod, :teacher )');
-
-            $sth->bindValue(":status", $_POST['status']);
-            $sth->bindValue(":name", $_POST['name']);
-            $sth->bindValue(":shortDescription", $_POST['shortDescription']);
-            $sth->bindValue(":smallPicture", $_FILES['smallPicture']['name']);
-            $sth->bindValue(":longDescription", $_POST['longDescription']);
-            $sth->bindValue(":largePicture", $_FILES['largePicture']['name']);
-            $sth->bindValue(":subscribeStartDate", $_POST['subscribeStartDate']);
-            $sth->bindValue(":subscribeEndDate", $_POST['subscribeEndDate']);
-            $sth->bindValue(":homeDisplay", $_POST['homeDisplay']);
-            $sth->bindValue(":displayPosition", $_POST['displayPosition']);
-            $sth->bindValue(":dateTime", $_POST['dateTime']);
-            $sth->bindValue(":loadTime", $_POST['loadTime']);
-            $sth->bindValue(":material", $_POST['material']);
-            $sth->bindValue(":target", $_POST['target']);
-            $sth->bindValue(":address", $_POST['address']);
-            $sth->bindValue(":price", $_POST['price']);
-            $sth->bindValue(":paymentMethod", $_POST['paymentMethod']);
-            $sth->bindValue(":teacher", $_POST['teacher']);
-
-            $sth->execute();
-        } catch (PDOException $e) {
-            $functionError = TRUE;
-            return $e->getMessage();
-        }
-
-        //$this->uploadImage();
-    }
-
-    public function addCourse($arrayCourse, $arrayPaymentMethod) {
+    public function create($arrayCourse, $arrayPaymentMethod) {
 
         try {
 
@@ -84,28 +47,6 @@ class courseModel extends Model {
         }
     }
 
-    public function search($value) {
-
-
-        $sql = "SELECT * FROM courses INNER JOIN paymentmethods ON courses.courseId = paymentmethods.courseId WHERE courses.courseId = ?";
-        $arrayParam = array($value);
-        $teste = $this->CRUD->getSQLGeneric($sql, $arrayParam, FALSE);
-    }
-
-    public function delete() {
-
-        try {
-
-            $sth = $this->db->prepare('DELETE FROM CURSO WHERE courseId = :courseId');
-
-            $sth->bindValue(":courseId", $_GET['courseId']);
-
-            $sth->execute();
-        } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
-    }
-
     public function update($arrayCourse, $arrayPaymentMethod, $arrayCond) {
 
         try {
@@ -124,6 +65,28 @@ class courseModel extends Model {
         } catch (PDOException $e) {
             $this->CRUD->rollback();
             Session::Set("PDO_ERRORS", $e->getMessage());
+        }
+    }
+
+    public function search($value) {
+
+        $sql = "SELECT * FROM courses INNER JOIN paymentmethods ON courses.courseId = paymentmethods.courseId WHERE courses.courseId = ?";
+        $arrayParam = array($value);
+        $teste = $this->CRUD->getSQLGeneric($sql, $arrayParam, FALSE);
+    }
+
+    public function delete($arrayCond) {
+
+        try {
+            
+            $this->CRUD->beginTransaction();
+            
+            
+            $this->CRUD->setTableName("courses");
+            $return =  $this->CRUD->delete($arrayCond);
+           
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
         }
     }
 
@@ -156,8 +119,7 @@ class courseModel extends Model {
 //            $payments = $this->CRUD->getSQLGeneric($sql, $arrayParam, FALSE);
 //
 //            return array($course, $payments);
-             return $course;
-            
+            return $course;
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
@@ -173,7 +135,7 @@ class courseModel extends Model {
 
         try {
 
-            $sth = $this->db->query('SELECT * FROM courses WHERE homeDisplay = 1 ORDER BY homePosition LIMIT 6');
+            $sth = $this->db->query('SELECT * FROM courses WHERE showHomePage = 1 ORDER BY homePosition LIMIT 6');
 
             $sth->execute();
 
@@ -189,8 +151,15 @@ class courseModel extends Model {
 
         $sql = "SELECT * FROM courses WHERE $key = ?";
         $arrayParam = array($value);
-        $user = $this->CRUD->getSQLGenericClass($sql, $arrayParam, "course", FALSE);
+        $user = $this->CRUD->getSQLGenericClass($sql, $arrayParam, "Course", FALSE);
         return $user;
     }
 
+      public function getPaymentMethods($key, $value) {
+
+        $sql = "SELECT * FROM paymentmethods WHERE $key = ?";
+        $arrayParam = array($value);
+        $user = $this->CRUD->getSQLGeneric($sql, $arrayParam, FALSE);
+        return $user;
+    }
 }

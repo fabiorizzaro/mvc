@@ -96,9 +96,9 @@ class subscribeModel extends Model {
         //Calcula o valor da parcela
         $installmentsValue = '';
         if ($coupon->getCouponID() === null) {
-            $installmentsValue = $course->getPrice() / $installments;
+            $installmentsValue = $course->getCoursePrice() / $installments;
         } else {
-            $installmentsValue = ($course->getPrice() - $coupon->getValue()) / $installments;
+            $installmentsValue = ($course->getCoursePrice() - $coupon->getValue()) / $installments;
         }
 
         // Set the default due date Today + 1 day
@@ -108,7 +108,7 @@ class subscribeModel extends Model {
 
         $creditCardPayment = new boletoFacil();
 
-        $creditCardPayment->setDescription($course->getTitle());
+        $creditCardPayment->setDescription($course->getCourseName());
         $creditCardPayment->setReference($referenceNumber);
         $creditCardPayment->setAmount($installmentsValue);
         $creditCardPayment->setDueDate($defaultDueDate->format('d/m/Y'));
@@ -163,9 +163,8 @@ class subscribeModel extends Model {
                 $this->CRUD->insert($chargeArray);
             }
             $this->CRUD->commit();
-            
+
             // send confitmation e-mail
-            
         } else {
 
             echo "falhou";
@@ -182,13 +181,15 @@ class subscribeModel extends Model {
      * 
      */
 
-    public function creditCardPayment(Array $creditCard, $installments, Course $course, User $user, $coupon) {
+    public function creditCardPayment(Array $creditCard, $installments, $course, $user, $coupon) {
 
         //Cria o Numero de Referencia
         $referenceNumber = strtoupper(uniqid());
 
         //Calcula o valor da parcela
         $installmentsValue = '';
+
+
         if ($coupon->getCouponID() === null) {
             $installmentsValue = $course->getPrice() / $installments;
         } else {
@@ -259,11 +260,9 @@ class subscribeModel extends Model {
                 $this->CRUD->insert($chargeArray);
             }
             $this->CRUD->commit();
-            
         } else {
 
             echo "erro: " . $returnData->errorMessage;
-            
         }
     }
 
@@ -278,7 +277,7 @@ class subscribeModel extends Model {
         $params = array(
             'paymentToken' => $this->paymentNotification['paymentToken']
         );
-      
+
 
         $ch = curl_init();
 
@@ -323,19 +322,21 @@ class subscribeModel extends Model {
 
     public function validateCoupons($couponId, $userId, $courseId) {
 
-        $CRUD = Crud::getInstance($this->db);
 
-        $sql = "SELECT coupons.couponId, coupons.value, courses.price FROM coupons "
+
+        $sql = "SELECT coupons.couponId, coupons.value, courses.coursePrice FROM coupons "
                 . "INNER JOIN courses ON coupons.courseId = courses.courseId "
                 . "WHERE coupons.couponId = ? "
                 . "AND coupons.courseId = ? "
-                . "AND coupons.userId = ? "
+//                . "AND coupons.userId = ? "
                 . "AND coupons . quantity > 0 "
                 . "AND coupons . dueDate >= CURDATE();";
+//        $sql = "select * from coupons";
 
-        $arrayParam = array($couponId, $userId, $courseId);
+//        $arrayParam = array($couponId, $userId, $courseId);
+        $arrayParam = array($couponId,  $courseId);
 
-        $couponData = $CRUD->getSQLGeneric($sql, $arrayParam, FALSE);
+        $couponData = $this->CRUD->getSQLGeneric($sql, $arrayParam, FALSE);
 
         $result = array();
 
@@ -344,8 +345,8 @@ class subscribeModel extends Model {
                 'error' => FALSE,
                 'message' => '',
                 'value' => $couponData->value,
-                'price' => $couponData->price,
-                'finalPrice' => number_format($couponData->price - $couponData->value, 2, ',', ' '));
+                'price' => $couponData->coursePrice,
+                'finalPrice' => number_format($couponData->coursePrice - $couponData->value, 2, ',', ' '));
         } else {
             $result = array(
                 'error' => TRUE,
@@ -390,9 +391,8 @@ class subscribeModel extends Model {
         mail($to, $subject, $htmlContent, $headers);
     }
 
-    
     //***************************** TO BE DELETED ******************************
-    
+
     /*
      * @Deprecated
      */
@@ -426,6 +426,7 @@ class subscribeModel extends Model {
     /*
      * @Deprecated
      */
+
     private function processPayment($paymentMethod) {
 
         $installments = isset($_POST['installments']) ? $_POST['installments'] : 1;

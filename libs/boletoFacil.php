@@ -100,22 +100,31 @@ class boletoFacil {
             'paymentAdvance' => $this->paymentAdvance
         );
 
-               
+
         $ch = curl_init();
         // Disable SSL verification
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // Will return the response, if false it print the response
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
- 
+
         // Set the url
         curl_setopt($ch, CURLOPT_URL, $this::urlSandBox);
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         // Execute
         $result = curl_exec($ch);
+       
+
+//        if (curl_exec($ch) === false) {
+//            echo 'Curl error: ' . curl_error($ch);
+//        } else {
+//            echo 'Operation completed without any errors';
+//        }
+        
         // Closing
         curl_close($ch);
-               
+       
+
         return $result;
     }
 
@@ -402,6 +411,5 @@ class boletoFacil {
     public function setCreditCardHash($creditCardHash) {
         $this->creditCardHash = $creditCardHash;
     }
-
 
 }

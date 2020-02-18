@@ -22,7 +22,7 @@ and open the template in the editor.
                 <th>Limite Inscrições</th>
                 <th>Limite Inscrições</th>
                 <th>Valor</th>
-                <th colspan = "2">Ações</th>
+                <th colspan = "3">Ações</th>
             </tr>
 
             <?php
@@ -34,8 +34,9 @@ and open the template in the editor.
                 echo '<td>' . $row['subscribeStartDate'] . '</td>';
                 echo '<td>' . $row['subscribeEndDate'] . '</td>';
                 echo '<td>' . $row['coursePrice'] . '</td>';
-                echo '<td><a class="btn btn-primary" href="/course/edit?courseId=' . $row['courseId'] . '" >EDITAR</a></td>';
-                echo '<td><a data-confirm="Are you sure you want to delete?" class="btn btn-danger" href="/course/delete?courseId=' . $row['courseId'] . '">APAGAR</a></td>';
+                echo '<td><a class="btn btn-primary" href="/course/viewDetails/' . $row['courseId'] . '" >Ver</a></td>';
+                echo '<td><a class="btn btn-primary" href="/course/edit/' . $row['courseId'] . '" >EDITAR</a></td>';
+                echo '<td><a data-confirm="Are you sure you want to delete?" class="btn btn-danger" href="/course/delete/' . $row['courseId'] . '">APAGAR</a></td>';
                 echo '</tr>';
             }
             ?>

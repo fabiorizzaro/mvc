@@ -351,7 +351,8 @@ if (isset($this->courseData)) {
             </div>
 
         </div>
-        <input class="btn btn-lg btn-primary mt-3 mb-5 float-right " type="submit" value="Enviar" />
+        <input class="btn btn-lg btn-primary mt-3 mb-5  float-right " type="submit" value="Delete" />
+        <input class="btn btn-lg btn-primary mt-3 mb-5 mr-4  float-right " type="submit" value="Enviar" />
     </form>
 
 </div>
@@ -362,7 +363,7 @@ if (isset($this->courseData)) {
         tinymce.init({
             selector: "textarea", // change this value according to your html
             plugins: "textcolor colorpicker lists code media link preview",
-            toolbar: "forecolor backcolor formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment'"
+            toolbar: "formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment'"
         });
     });
 
@@ -427,7 +428,7 @@ if (isset($this->courseData)) {
 
         if ($("#courseId").val() === "") {
 
-            $("#course").attr("action", "/course/cadastros");
+            $("#course").attr("action", "/course/create");
 
         } else {
 

@@ -239,7 +239,7 @@
                         <div class="col-lg-12">
                             <p class="formTitle">Curso</p>
                             <select id="curso" name="curso" class="form-control formInput">
-                                <option value="23">Grupo de Estudos 2019 - Turma 2</option>
+                                <option value="23">Grupo de Estudos 2019 - Turma 3 (Jd. Motorama)</option>
                             </select>
                         </div>
                     </div>

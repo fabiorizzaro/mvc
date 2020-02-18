@@ -52,7 +52,9 @@ class mainController extends Controller {
         $key = 'courseId';
         $value = $courseId;
         $this->view->data = $this->CourseModel->searchByKey($key, $value);
-        $this->view->make('Courses/Details');
+        $this->view->make('Courses/Details_v2');
+        echo "v2";
+        die();
         
     }
 

@@ -78,7 +78,7 @@ class user extends Controller {
         
         $username = filter_input(INPUT_POST, 'username');
         $password = filter_input(INPUT_POST, 'password');
-        $loginData = $this->loginModel->login2($username,$password);
+        $loginData = $this->loginModel->login($username,$password);
         
         //$this->view->redirect('/subscribe/main');
         $this->view->redirect($loginData['href']);

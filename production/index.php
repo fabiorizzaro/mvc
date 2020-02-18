@@ -75,23 +75,23 @@ and open the template in the editor.
             <div id="courses-content" class="row">
 
                 <div class="col-lg-4">
-                    <p class="courseTitle">Grupo de Estudos para Concursos</p>
+                    <p class="courseTitle">Formação em LIBRAS </br> Aprenda como se comunicar e aumente suas oportunidades de trabalho</p>
                     <div class="courseImage">
-                        <img src="courses/C0015/images/Grupo_370x200.png">
+                        <img src="courses/C0025/images/Libras_370x200.png">
                     </div>
                     <div class="courseDescription">
 
                         <p><strong>Disponibilidade:</strong>Inscrições Abertas</p>
-                        <p> Algumas pessoas sentem a necessidade de estudar com tranquilidade e sem pressão com
-                            datas; segundo Howard Gardner cada pessoa possui uma propensão a aprender utilizando
-                            sentidos específicos, sendo visuais, auditivas, cenestésicas, etc e o ambiente e tempo
-                            acabam interferindo nesse aprendizado. O intuito de nosso grupo é fazer com que os alunos
-                            apropriem-se de conteúdos comuns a vários concursos da área da educação. Selecionamos
-                            com base em concursos das empresas mais conceituadas os conteúdos básicos a todas e que
-                            acabam norteando todo o trabalho da educação.</p>
+                        <p> Hoje a comunidade surda no Brasil já soma quase 10 milhões de pessoas, segundo dados do IBGE levantados no último censo.<br>
+
+                            Para garantir que essas pessoas estejam integradas, é obrigatório que o setor público atenda deficientes auditivos por meio da Língua Brasileira de Sinais.<br>
+
+                            Áreas como, educação, saúde, RH e atendimento ao público em geral tem uma grande demanda por profissionais que dominam LIBRAS.<br>
+
+                            Portanto, da mesma forma que ter o domínio de um idioma estrangeiro, dominar LIBRAS também é um grande diferencial parar o seu currículo.</p>
 
                         <br>
-                        <a href="/courses/C0015/GrupoEstudos.php">
+                        <a href="/courses/C0025/libras.php">
                             <p align="center" class="button">Mais Detalhes</p>
                         </a>
                     </div>
@@ -99,25 +99,27 @@ and open the template in the editor.
                 </div>
 
                 <div class="col-lg-4">
-                    <p class="courseTitle">Portugûes e Matemática para Concursos</p>
+                    <p class="courseTitle">PROFA - Programa de Formação de Professores Alfabetizadores</p>
                     <div class="courseImage">
-                        <img src="courses/C0024/images/PMPC_370x200.jpg">
+                        <img src="courses/C0019/images/PROFA_370x200.png">
                     </div>
                     <div class="courseDescription">
-
                         <p><strong>Disponibilidade:</strong>Inscrições Abertas</p>
-                        <p>O curso preparatório foi pensado especialmente para você que precisa retomar os estudos de português e matemática 
-                            do ensino fundamental (a partir do 6º ano) e médio, com o objetivo de se preparar para o concurso público.
-                            Com uma linguagem simples, clara e objetiva os professores irão passar os 
-                            conteúdos e técnicas para facilitar o entendimento e aumentar a compreensão. </p>
+                        <p>O Programa de Formação de Professores Alfabetizadores é um curso anual de formação
+                            destinado especialmente a professores que ensinam a ler e escrever na Educação Infantil e no
+                            Ensino Fundamental, tanto crianças como jovens e adultos. Embora seja destinado em especial
+                            a professores que alfabetizam, é aberto a outros profissionais da educação que pretendem
+                            aprofundar seus conhecimentos sobre o ensino ...</p>
 
                         <br>
-                        <a href="courses/C0024/PMPC.php">
+                        <a href="/courses/C0019/PROFA.php">
                             <p align="center" class="button">Mais Detalhes</p>
                         </a>
                     </div>
 
                 </div>
+
+
                 <div class="col-lg-4">
                     <p class="courseTitle">Educação Inclusiva: Como planejar e elaborar materiais estruturados para alunos com desenvolvimento escolar atípico?</p>
                     <div class="courseImage">
@@ -192,28 +194,28 @@ and open the template in the editor.
                     </div>
 
                 </div>
+
+
                 <div class="col-lg-4">
-                    <p class="courseTitle">PROFA - Programa de Formação de Professores Alfabetizadores</p>
+                    <p class="courseTitle">Portugûes e Matemática para Concursos</p>
                     <div class="courseImage">
-                        <img src="courses/C0019/images/PROFA_370x200.png">
+                        <img src="courses/C0024/images/PMPC_370x200.jpg">
                     </div>
                     <div class="courseDescription">
-                        <p><strong>Disponibilidade:</strong> Novas Turmas em Breve</p>
-                        <p>O Programa de Formação de Professores Alfabetizadores é um curso anual de formação
-                            destinado especialmente a professores que ensinam a ler e escrever na Educação Infantil e no
-                            Ensino Fundamental, tanto crianças como jovens e adultos. Embora seja destinado em especial
-                            a professores que alfabetizam, é aberto a outros profissionais da educação que pretendem
-                            aprofundar seus conhecimentos sobre o ensino ...</p>
+
+                        <p><strong>Disponibilidade:</strong>Inscrições Encerradas</p>
+                        <p>O curso preparatório foi pensado especialmente para você que precisa retomar os estudos de português e matemática 
+                            do ensino fundamental (a partir do 6º ano) e médio, com o objetivo de se preparar para o concurso público.
+                            Com uma linguagem simples, clara e objetiva os professores irão passar os 
+                            conteúdos e técnicas para facilitar o entendimento e aumentar a compreensão. </p>
 
                         <br>
-                        <a href="#">
+                        <a href="courses/C0024/PMPC.php">
                             <p align="center" class="button">Mais Detalhes</p>
                         </a>
                     </div>
 
                 </div>
-
-
 
 
             </div>
@@ -374,5 +376,13 @@ and open the template in the editor.
     <!-- Java Script External Files -->
     <script src="jQuery/jquery-3.1.0.js" type="text/javascript"></script>
     <script src="Bootstrap/js/bootstrap.js" type="text/javascript"></script>
-
+    <script>
+        (function (w, d, u) {
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = u + '?' + (Date.now() / 60000 | 0);
+            var h = d.getElementsByTagName('script')[0];
+            h.parentNode.insertBefore(s, h);
+        })(window, document, 'https://cdn.bitrix24.com.br/b12846159/crm/tag/call.tracker.js');
+    </script>
 </html>

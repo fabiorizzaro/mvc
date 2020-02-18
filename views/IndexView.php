@@ -71,10 +71,10 @@
         <?php for ($x = 0; $x < sizeof($this->courses); $x++) { ?> 
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="card mt-5 ">
-                    <a href="course/details/<?php echo $this->courses[$x]['courseId'] ?>" style="text-decoration: none"><img class="card-img-top" src="/public/upload/<?php echo $this->courses[$x]['smallPicture'] ?>" alt=""/></a>
+                    <a href="course/viewDetails/<?php echo $this->courses[$x]['courseId'] ?>" style="text-decoration: none"><img class="card-img-top" src="/public/upload/<?php echo $this->courses[$x]['smallPicture'] ?>" alt=""/></a>
                     <div class="card-body ">
-                        <h5 class="card-title"><a href="course/details/<?php echo $this->courses[$x]['courseId'] ?>" style="text-decoration: none"> <?php echo $this->courses[$x]['courseName'] ?></a></h5> 
-                        <p class="card-text"><a href="course/details/<?php echo $this->courses[$x]['courseId'] ?>" style="text-decoration: none"><?php echo $this->courses[$x]['shortDescription'] ?></a></p>
+                        <h5 class="card-title"><a href="course/viewDetails/<?php echo $this->courses[$x]['courseId'] ?>" style="text-decoration: none"> <?php echo $this->courses[$x]['courseName'] ?></a></h5> 
+                        <p class="card-text"><a href="course/viewDetails/<?php echo $this->courses[$x]['courseId'] ?>" style="text-decoration: none"><?php echo $this->courses[$x]['shortDescription'] ?></a></p>
                     </div>
                 </div>
             </div>

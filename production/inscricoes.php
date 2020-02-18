@@ -40,38 +40,38 @@
         <!-- Hotjar Tracking Code for www.alliqua.com.br -->
         <script>
             (function (h, o, t, j, a, r) {
-            h.hj = h.hj || function () {
-            (h.hj.q = h.hj.q || []).push(arguments)
-            };
-            h._hjSettings = {hjid: 583112, hjsv: 6};
-            a = o.getElementsByTagName('head')[0];
-            r = o.createElement('script');
-            r.async = 1;
-            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-            a.appendChild(r);
+                h.hj = h.hj || function () {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = {hjid: 583112, hjsv: 6};
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
             })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
         </script>
         <!-- Facebook Pixel Code -->
         <script>
             !function (f, b, e, v, n, t, s)
             {
-            if (f.fbq)
+                if (f.fbq)
                     return;
-            n = f.fbq = function () {
-            n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq)
+                n = f.fbq = function () {
+                    n.callMethod ?
+                            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq)
                     f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
             }(window, document, 'script',
                     'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '222351688319261');
@@ -240,7 +240,8 @@
                             <p class="formTitle">Curso</p>
                             <select id="curso" name="curso" class="form-control formInput">
 
-                                <option value="33">Português e Matemática para Concursos</option>
+                                <option value="37">Formação em LIBRAS</option>
+                                <option value="27">PROFA - Programa de Formação de Professores Alfabetizadores</option>
                             </select>
                         </div>
                     </div>
@@ -258,11 +259,11 @@
                                     <option value="3">3 Vezes</option>
                                     <option value="4">4 Vezes</option>
                                     <option value="5">5 Vezes</option>
-                                    <!--                                    <option value="6">6 Vezes</option>
-                                                                        <option value="7">7 Vezes</option>
-                                                                        <option value="8">8 Vezes</option>
-                                                                        <option value="9">9 Vezes</option>
-                                                                        <option value="10">10 Vezes</option>-->
+                                    <option value="6">6 Vezes</option>
+                                    <option value="7">7 Vezes</option>
+                                    <option value="8">8 Vezes</option>
+                                    <option value="9">9 Vezes</option>
+                                    <option value="10">10 Vezes</option>
                                 </select>
                             </div>
                             <br>
@@ -272,7 +273,7 @@
                                 <select id="parcelasBoleto2" name="parcelasBoleto2" class="form-control formInput">
                                     <option value="1">À Vista</option>
                                     <option value="2">2 Vezes</option>
-                                    <!--                                    <option value="3">3 Vezes</option>-->
+                                    <option value="3">3 Vezes</option>
                                 </select>
                             </div>
 
@@ -307,151 +308,135 @@
 
 
 
-        $.getJSON("https://viacep.com.br/ws/" + $("#cep").val() + "/json/")
-                .done(function (result) {
+            $.getJSON("https://viacep.com.br/ws/" + $("#cep").val() + "/json/")
+                    .done(function (result) {
 
-                if (!("erro" in result)) {
-                $("#logradouro").val(result.logradouro);
-                $("#bairro").val(result.bairro);
-                $("#cidade").val(result.localidade);
-                $("#uf").val(result.uf);
-                } else {
-                $("#cep").val("CEP não encontrado");
-                }
-                })
-                .fail(function () {
-                $("#cep").val("CEP Inválido - O CEP deve conter apenas 8 dígitos");
-                });
+                        if (!("erro" in result)) {
+                            $("#logradouro").val(result.logradouro);
+                            $("#bairro").val(result.bairro);
+                            $("#cidade").val(result.localidade);
+                            $("#uf").val(result.uf);
+                        } else {
+                            $("#cep").val("CEP não encontrado");
+                        }
+                    })
+                    .fail(function () {
+                        $("#cep").val("CEP Inválido - O CEP deve conter apenas 8 dígitos");
+                    });
         });
         $(function () {
 
-        // Initialize form validation on the registration form.
-        // It has the name attribute "registration"
-        $("form[name='registration']").validate({
-        // Specify validation rules
-        rules: {
-        // The key name on the left side is the name attribute
-        // of an input field. Validation rules are defined
-        // on the right side
-        nomeCompleto: "required",
-                profissao: "required",
-                email: {
-                required: true,
+            // Initialize form validation on the registration form.
+            // It has the name attribute "registration"
+            $("form[name='registration']").validate({
+                // Specify validation rules
+                rules: {
+                    // The key name on the left side is the name attribute
+                    // of an input field. Validation rules are defined
+                    // on the right side
+                    nomeCompleto: "required",
+                    profissao: "required",
+                    email: {
+                        required: true,
                         // Specify that email should be validated
                         // by the built-in "email" rule
                         email: true
-                },
-                cpf: {
-                required: true,
+                    },
+                    cpf: {
+                        required: true,
                         cpfBR: true
-                },
-                telefone02: {
-                required: true,
+                    },
+                    telefone02: {
+                        required: true,
                         celular: true
+                    },
+                    uf: {
+                        maxlength: 2
+                    }
+
+
                 },
-                uf: {
-                maxlength: 2
-                }
-
-
-        },
                 messages: {
-                nomeCompleto: {
-                required: "Preenchimento Obrigatório"
-                },
-                        profissao: {
+                    nomeCompleto: {
                         required: "Preenchimento Obrigatório"
-                        },
-                        email: {
+                    },
+                    profissao: {
+                        required: "Preenchimento Obrigatório"
+                    },
+                    email: {
                         required: "Preenchimento Obrigatório",
-                                email: "Por favor digite um e-mail válido"
-                        },
-                        cpf: {
+                        email: "Por favor digite um e-mail válido"
+                    },
+                    cpf: {
                         required: "Digite o seu CPF",
-                                cpfBR: "Por favor Digite um CPF válido"
-                        },
-                        telefone02: {
+                        cpfBR: "Por favor Digite um CPF válido"
+                    },
+                    telefone02: {
                         required: "Preenchimento Obrigatório"
-                        },
-                        uf: {
+                    },
+                    uf: {
                         maxlength: "Usar somente 2 letras. Ex: São Paulo = SP"
-                        }
+                    }
 
                 },
-        });
+            });
         });
         jQuery.validator.addMethod('celular', function (value, element) {
-        value = value.replace("(", "");
-        value = value.replace(")", "");
-        value = value.replace("-", "");
-        value = value.replace(" ", "").trim();
-        if (value == '0000000000') {
-        return (this.optional(element) || false);
-        } else if (value == '00000000000') {
-        return (this.optional(element) || false);
-        }
-        if (["00", "01", "02", "03", , "04", , "05", , "06", , "07", , "08", "09", "10"].indexOf(value.substring(0, 2)) != - 1) {
-        return (this.optional(element) || false);
-        }
-        if (value.length < 10 || value.length > 11) {
-        return (this.optional(element) || false);
-        }
-        if (["6", "7", "8", "9"].indexOf(value.substring(2, 3)) == - 1) {
-        return (this.optional(element) || false);
-        }
-        return (this.optional(element) || true);
+            value = value.replace("(", "");
+            value = value.replace(")", "");
+            value = value.replace("-", "");
+            value = value.replace(" ", "").trim();
+            if (value == '0000000000') {
+                return (this.optional(element) || false);
+            } else if (value == '00000000000') {
+                return (this.optional(element) || false);
+            }
+            if (["00", "01", "02", "03", , "04", , "05", , "06", , "07", , "08", "09", "10"].indexOf(value.substring(0, 2)) != -1) {
+                return (this.optional(element) || false);
+            }
+            if (value.length < 10 || value.length > 11) {
+                return (this.optional(element) || false);
+            }
+            if (["6", "7", "8", "9"].indexOf(value.substring(2, 3)) == -1) {
+                return (this.optional(element) || false);
+            }
+            return (this.optional(element) || true);
         }, 'Informe um celular válido');
-//        $('#curso').change(function () {
-//            var curso = $('#curso option:selected').val();
-//
-//            if (curso == 23) {
-//
-//               
-//                $("#parcelasBoleto").append('<option value="6">6 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="7">7 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="8">8 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="9">9 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="10">10 Vezes</option>');
-//
-//                $("#parcelasBoleto2").append('<option value="3">3 Vezes</option>');
-//
-//            }
-//
-//            if (curso == 33) {
-//
-//
-//                $("#parcelasBoleto option[value='6']").remove();
-//                $("#parcelasBoleto option[value='7']").remove();
-//                $("#parcelasBoleto option[value='8']").remove();
-//                $("#parcelasBoleto option[value='9']").remove();
-//                $("#parcelasBoleto option[value='10']").remove();
-//
-//
-//                $("#parcelasBoleto2 option[value='3']").remove();
-//
-//           }
 
+        $('#curso').change(function () {
+            var curso = $('#curso option:selected').val();
 
-//            if (curso == 33) {
-//                $("#parcelasBoleto option[value='6']").remove();
-//                $("#parcelasBoleto option[value='7']").remove();
-//                $("#parcelasBoleto option[value='8']").remove();
-//                $("#parcelasBoleto option[value='9']").remove();
-//                $("#parcelasBoleto option[value='10']").remove();
-//
-//            } else {
-//
-//                $("#parcelasBoleto").append('<option value="2">2 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="3">3 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="4">4 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="5">5 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="6">6 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="7">7 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="8">8 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="9">9 Vezes</option>');
-//                $("#parcelasBoleto").append('<option value="10">10 Vezes</option>');
-//
-//            }
+            if (curso == 27) {
+                
+                $("#parcelasBoleto option[value='2']").remove();
+                $("#parcelasBoleto option[value='3']").remove();
+                $("#parcelasBoleto option[value='4']").remove();
+                $("#parcelasBoleto option[value='5']").remove();
+                $("#parcelasBoleto option[value='6']").remove();
+                $("#parcelasBoleto option[value='7']").remove();
+                $("#parcelasBoleto option[value='8']").remove();
+                $("#parcelasBoleto option[value='9']").remove();
+                $("#parcelasBoleto option[value='10']").remove();
+                
+                $("#parcelasBoleto2 option[value='2']").remove();
+                $("#parcelasBoleto2 option[value='3']").remove();
+
+            } else {
+
+                $("#parcelasBoleto").append('<option value="2">2 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="3">3 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="4">4 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="5">5 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="6">6 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="7">7 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="8">8 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="9">9 Vezes</option>');
+                $("#parcelasBoleto").append('<option value="10">10 Vezes</option>');
+                
+                $("#parcelasBoleto2").append('<option value="2">2 Vezes</option>');
+                $("#parcelasBoleto2").append('<option value="3">3 Vezes</option>');
+
+            }
 
         });
     </script>

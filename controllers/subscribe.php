@@ -27,7 +27,8 @@ class subscribe extends Controller {
         if ($this->validateCourse($courseId) > 0 && $this->validateUser() === TRUE) {
             $this->view->userData = $this->userModel->searchByKey("userId", Session::Get('userId'));
             $this->view->courseData = $this->courseModel->searchByKey("courseId", Session::Get('courseId'));
-            $this->view->make('Courses/Enroll','Instituto Alliqua - Checkout');
+            $this->view->paymentMethodsData = $this->courseModel->getPaymentMethods("courseId", Session::Get('courseId'));
+            $this->view->make('Courses/Enroll_3','Instituto Alliqua - Checkout');
         } else {
             
             $this->view->redirect("/login/loginForm/subscribe");
@@ -85,7 +86,7 @@ class subscribe extends Controller {
      * @param type $paymentType
      */
     public function enroll($paymentType) {
-
+       
         $user = $this->userModel->getUser('userId', Session::Get('userId'));
         $course = $this->courseModel->getCourse('courseId', Session::Get('courseId'));
 
@@ -127,7 +128,9 @@ class subscribe extends Controller {
                 );
 
                 $this->subscribeModel->creditCardPayment($creditCard, $installments, $course, $user, $coupon);
+                
                 $this->view->redirect('/Subscribe/confirmation');
+                
                 break;
         }
     }
@@ -147,7 +150,11 @@ class subscribe extends Controller {
 
     public function test($var = null, $var2 = null, $var3 = null, $var4 = null, $var5 = null) {
 
-        $this->subscribeModel->test();
+        //$this->subscribeModel->test();
+        
+        
+        echo (filter_input(INPUT_POST, 'pag'));
+        
     }
     
     /*
